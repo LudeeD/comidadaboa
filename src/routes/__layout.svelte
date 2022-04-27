@@ -1,45 +1,31 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+	import Header from "$lib/header/Header.svelte";
+	import Menu from "$lib/menu/Menu.svelte";
+	import "../app.css";
 </script>
 
 <Header />
 
-<main>
+<div class="container">
 	<slot />
-</main>
+</div>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
+<div class="container">
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p>
+				<strong>Bulma</strong> by
+				<a href="https://jgthms.com">Jeremy Thomas</a>. The source code
+				is licensed
+				<a href="http://opensource.org/licenses/mit-license.php">MIT</a
+				>. The website content is licensed
+				<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+					>CC BY NC SA 4.0</a
+				>.
+			</p>
+		</div>
+	</footer>
+</div>
 
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
-	}
 </style>

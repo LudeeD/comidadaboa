@@ -3,15 +3,25 @@
   "name": "sveltekit",
   "version": "0.0.1",
   "scripts": {
+    "style": "node-sass --omit-source-map-url src/main.scss src/app.css",
+    "predev": "node-sass --omit-source-map-url src/main.scss src/app.css",
     "dev": "svelte-kit dev",
+    "prebuild": "node-sass --omit-source-map-url src/main.scss src/app.css",
     "build": "svelte-kit build",
+    "prepackage": "node-sass --omit-source-map-url src/main.scss src/app.css",
     "package": "svelte-kit package",
+    "prepreview": "node-sass --omit-source-map-url src/main.scss src/app.css",
     "preview": "svelte-kit preview"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "svelte": "^3.46.0"
+    "autoprefixer": "^10.4.5",
+    "bulma": "^0.9.3",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.12",
+    "svelte": "^3.46.0",
+    "svelte-preprocess": "^4.10.6"
   },
   "type": "module",
   "dependencies": {
