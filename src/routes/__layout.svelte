@@ -6,26 +6,21 @@
 
 <Header />
 
-<div class="container">
+<div class="container content">
 	<slot />
 </div>
 
-<div class="container">
-	<footer class="footer">
-		<div class="content has-text-centered">
-			<p>
-				<strong>Bulma</strong> by
-				<a href="https://jgthms.com">Jeremy Thomas</a>. The source code
-				is licensed
-				<a href="http://opensource.org/licenses/mit-license.php">MIT</a
-				>. The website content is licensed
-				<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-					>CC BY NC SA 4.0</a
-				>.
-			</p>
-		</div>
-	</footer>
-</div>
+<footer class="footer is-bottom ">
+	<div class="content has-text-centered">
+		<p>
+			<strong>Comida da Boa</strong> criado por
+			<a href="https://luissilva.eu">Luís Silva</a> com ❤️ e 🥲
+		</p>
+	</div>
+</footer>
 
 <style>
+	.content {
+		flex: 1;
+	}
 </style>

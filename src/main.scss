@@ -25,5 +25,21 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
+$footer-padding: 1.5rem;
+
 // Import only what you need from Bulma
 @import "../node_modules/bulma/bulma.sass";
+
+#svelte {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.max {
+    max-width: 777px;
+}
