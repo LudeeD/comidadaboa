@@ -6,7 +6,7 @@
 
 <Header />
 
-<div class="container content">
+<div class="container content " style="width: 100%">
 	<slot />
 </div>
 

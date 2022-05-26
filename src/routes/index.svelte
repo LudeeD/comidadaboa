@@ -56,28 +56,28 @@
 </svelte:head>
 
 <section class="section">
-	<div class="columns is-vcentered">
-		<div class="column has-text-right">
-			<h1 class="title">Comida da Boa</h1>
-			<h2 class="subtitle">
-				{#key $adjective}
-					<p class="subtitle" in:fly={{ y: -20 }}>
-						{$adjective}
-					</p>
-				{/key}
-			</h2>
-		</div>
-		<div class="column has-text-left">
-			<img
-				style="max-height: 200px"
-				alt="The project logo"
-				src={barbecue}
-			/>
+	<div class="container">
+		<div class="columns is-centered">
+			<div class="column is-half has-text-centered">
+				<h1 class="title">Comida da Boa</h1>
+				<h2 class="subtitle">
+					{#key $adjective}
+						<p class="subtitle" in:fly={{ y: -20 }}>
+							{$adjective}
+						</p>
+					{/key}
+				</h2>
+				<img
+					style="max-height: 200px"
+					alt="The project logo"
+					src={barbecue}
+				/>
+			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section pt-0">
+<section class="section pt-0 ">
 	<div class="control is-medium {loading}">
 		<input
 			class="input is-medium"
