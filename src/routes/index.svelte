@@ -3,12 +3,12 @@
 </script>
 
 <script>
-	import Counter from "$lib/Counter.svelte";
 	import { readable } from "svelte/store";
 	import { fly } from "svelte/transition";
 
 	let loading = "";
 	import barbecue from "$lib/assets/undraw_barbecue_3x93.svg";
+	import { onMount } from "svelte";
 
 	let choices = ["saudável", "prático", "engraçado", "sem stress"];
 
@@ -37,6 +37,18 @@
 			val = v;
 		}, 750);
 	};
+
+	async function fetchData() {
+		const response = await fetch("/api/recent");
+		const data = await response.json();
+
+		return data.recipes;
+	}
+
+	let promise = [];
+	onMount(() => {
+		promise = fetchData();
+	});
 </script>
 
 <svelte:head>
@@ -75,17 +87,19 @@
 		/>
 	</div>
 
-	<div class="content is-medium max">
-		<ol>
-			<li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
-			<li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
-			<li>
-				Aliquam nec felis in sapien venenatis viverra fermentum nec
-				lectus.s dasd ad kasjdjahd kjashdkja hsd jkajdl ksd asld jalkdj
-				alkdj lakjdkla
-			</li>
-		</ol>
-	</div>
+	{#await promise}
+		<h1>Loading</h1>
+	{:then result}
+		<div class="content is-medium max">
+			<ol>
+				{#each result as name}
+					<li>
+						{name}
+					</li>
+				{/each}
+			</ol>
+		</div>
+	{/await}
 </section>
 
 <style>
