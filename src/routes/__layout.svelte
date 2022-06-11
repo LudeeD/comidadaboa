@@ -15,7 +15,4 @@
 </div>
 
 <style>
-	.content {
-		flex: 1;
-	}
 </style>
