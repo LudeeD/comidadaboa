@@ -3,40 +3,7 @@
 </script>
 
 <script>
-	import { readable } from "svelte/store";
-	import { fly } from "svelte/transition";
-
-	let loading = "";
-	import barbecue from "$lib/assets/undraw_barbecue_3x93.svg";
 	import { onMount } from "svelte";
-
-	let choices = ["saudável", "prático", "engraçado", "sem stress"];
-
-	const adjective = readable(
-		choices[Math.floor(Math.random() * choices.length)],
-		function start(set) {
-			const interval = setInterval(() => {
-				console.log("pila");
-				set(choices[Math.floor(Math.random() * choices.length)]);
-			}, 3000);
-
-			return function stop() {
-				clearInterval(interval);
-			};
-		}
-	);
-
-	let val = "";
-	let timer;
-
-	const debounce = (v) => {
-		loading = "is-loading";
-		clearTimeout(timer);
-		timer = setTimeout(() => {
-			loading = "";
-			val = v;
-		}, 750);
-	};
 
 	async function fetchData() {
 		const response = await fetch("/api/recent");
@@ -52,55 +19,23 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Página Inicial</title>
 </svelte:head>
 
-<section class="section">
-	<div class="container">
-		<div class="columns is-centered">
-			<div class="column is-half has-text-centered">
-				<h1 class="title">Comida da Boa</h1>
-				<h2 class="subtitle">
-					{#key $adjective}
-						<p class="subtitle" in:fly={{ y: -20 }}>
-							{$adjective}
-						</p>
-					{/key}
-				</h2>
-				<img
-					style="max-height: 200px"
-					alt="The project logo"
-					src={barbecue}
-				/>
-			</div>
-		</div>
+<center>
+	<div>
+		<button type="button">O que vou fazer hoje ?</button>
 	</div>
-</section>
+</center>
 
-<section class="section pt-0 ">
-	<div class="control is-medium {loading}">
-		<input
-			class="input is-medium"
-			type="text"
-			placeholder="Procurar receitas"
-			on:keyup={({ target: { value } }) => debounce(value)}
-		/>
-	</div>
-
-	{#await promise}
-		<h1>Loading</h1>
-	{:then result}
-		<div class="content is-medium max">
-			<ol>
-				{#each result as name}
-					<li>
-						{name}
-					</li>
-				{/each}
-			</ol>
-		</div>
-	{/await}
-</section>
+<h3>Receitas</h3>
+{#await promise}
+	<h1>Loading</h1>
+{:then result}
+	{#each result as name}
+		<p>- {name}</p>
+	{/each}
+{/await}
 
 <style>
 </style>

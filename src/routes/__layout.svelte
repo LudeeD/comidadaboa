@@ -1,23 +1,18 @@
 <script>
-	import Header from "$lib/header/Header.svelte";
-	import Menu from "$lib/menu/Menu.svelte";
 	import "../app.css";
 </script>
 
-<Header />
+<center>
+	<h1 style="margin-bottom: 0px;">== Comida da Boa ==</h1>
+	<small>por <a href="https://luissilva.eu">Luís Silva</a></small>
 
-<div class="container content " style="width: 100%">
+	<br />
+	<br />
+</center>
+
+<div style="max-width: 400px; margin:auto">
 	<slot />
 </div>
-
-<footer class="footer is-bottom ">
-	<div class="content has-text-centered">
-		<p>
-			<strong>Comida da Boa</strong> criado por
-			<a href="https://luissilva.eu">Luís Silva</a> com ❤️ e 🥲
-		</p>
-	</div>
-</footer>
 
 <style>
 	.content {
