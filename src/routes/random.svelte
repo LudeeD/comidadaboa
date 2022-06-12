@@ -6,6 +6,6 @@
 
     onMount(async () => {
         let r = Math.floor(Math.random() * (max_recipes - 0 + 1) + 0);
-        goto(`/receitas/${r}`);
+        goto(`/receitas/${r}`, { replaceState: true });
     });
 </script>
