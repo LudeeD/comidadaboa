@@ -23,6 +23,12 @@
     export let recipes;
 
     import ButtonRandom from "$lib/ButtonRandom.svelte";
+
+    import { goto } from "$app/navigation";
+
+    let gotoinfo = () => {
+        goto("/info");
+    };
 </script>
 
 <svelte:head>
@@ -30,13 +36,21 @@
 </svelte:head>
 
 <center>
-    <ButtonRandom text={"O que vou fazer hoje?"} />
+    <ButtonRandom text={"Ideias para hoje? 👨‍🍳"} />
 </center>
 
-<h3>Receitas</h3>
+<h3>Receitas Novas</h3>
 {#each recipes as name}
     <p>- {name}</p>
 {/each}
+
+<br />
+<br />
+<hr />
+
+<button>Receitas 📚</button>
+<button>Planear 📜</button>
+<button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <style>
 </style>

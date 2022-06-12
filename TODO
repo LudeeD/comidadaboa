@@ -1,7 +1,6 @@
 # NEXT STACK
 - week menu page
+- fix random recipes, max recipes is harcoded
 
 
 # DONE
-- make random button a component
-- change random button to be a page /random that redirects

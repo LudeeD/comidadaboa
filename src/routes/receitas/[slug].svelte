@@ -39,7 +39,7 @@
     let subtitle = `<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
 </script>
 
-<ButtonRandom text={"Apetece-me outra coisa !"} />
+<ButtonRandom text={"Apetece-me outra coisa 🔄"} />
 
 <h2 style="margin-bottom: 0px;">{title}</h2>
 <small>{@html subtitle}</small>
