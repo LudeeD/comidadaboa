@@ -33,12 +33,13 @@
     export let ingredients;
     export let instructions;
 
+    import ButtonRandom from "$lib/ButtonRandom.svelte";
+    import ButtonHome from "$lib/ButtonHome.svelte";
+
     let subtitle = `<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
 </script>
 
-<div>
-    <button type="button">Apetece-me outra coisa</button>
-</div>
+<ButtonRandom text={"Apetece-me outra coisa !"} />
 
 <h2 style="margin-bottom: 0px;">{title}</h2>
 <small>{@html subtitle}</small>
@@ -63,3 +64,5 @@
         {/each}
     </ol>
 </details>
+
+<ButtonHome />

@@ -1,50 +1,41 @@
 <script context="module">
-	export async function load({ fetch }) {
-		const response = await fetch("/api/recent");
-		const recipes = await response.json();
+    export async function load({ fetch }) {
+        const response = await fetch("/api/recent");
+        const recipes = await response.json();
 
-		if (response.ok) {
-			let ret = {
-				props: {
-					recipes: recipes["recipes"],
-				},
-			};
-			return ret;
-		}
+        if (response.ok) {
+            let ret = {
+                props: {
+                    recipes: recipes["recipes"],
+                },
+            };
+            return ret;
+        }
 
-		return {
-			status: response.status,
-			error: new Error("Could not fetch the guide"),
-		};
-	}
+        return {
+            status: response.status,
+            error: new Error("Could not fetch the guide"),
+        };
+    }
 </script>
 
 <script>
-	import { goto } from "$app/navigation";
+    export let recipes;
 
-	export let recipes;
-
-	let max_recipes = 10;
-
-	let random = () => {
-		let r = Math.floor(Math.random() * (max_recipes - 0 + 1) + 0);
-		goto(`/receitas/${r}`);
-	};
+    import ButtonRandom from "$lib/ButtonRandom.svelte";
 </script>
 
 <svelte:head>
-	<title>Página Inicial</title>
+    <title>Página Inicial</title>
 </svelte:head>
 
 <center>
-	<div>
-		<button on:click={random} type="button">O que vou fazer hoje ?</button>
-	</div>
+    <ButtonRandom text={"O que vou fazer hoje?"} />
 </center>
 
 <h3>Receitas</h3>
 {#each recipes as name}
-	<p>- {name}</p>
+    <p>- {name}</p>
 {/each}
 
 <style>
