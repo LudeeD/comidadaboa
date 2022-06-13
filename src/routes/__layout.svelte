@@ -3,7 +3,7 @@
 </script>
 
 <center>
-	<h1 style="margin-bottom: 0px;">== Comida da Boa ==</h1>
+	<a href="/"><h1 style="margin-bottom: 0px;">== Comida da Boa ==</h1></a>
 	<small>por <a href="https://luissilva.eu">Luís Silva</a></small>
 
 	<br />
@@ -15,4 +15,11 @@
 </div>
 
 <style>
+	a,
+	a:hover,
+	a:visited,
+	a:active {
+		color: inherit;
+		text-decoration: none;
+	}
 </style>

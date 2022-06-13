@@ -25,9 +25,9 @@
 
 	<h2>Adorei o site, e até gostava de ajudar, como posso fazer ?</h2>
 
-	<form action="https://buy.stripe.com/eVadR7d1x4aAddC5kk">
-		<input type="submit" value="Oferecer cerveja e rissol 🍺 🥟" />
-	</form>
+	<a href="https://www.paypal.com/donate/?hosted_button_id=Q6H5M9KWP8TKN">
+		<button> Oferecer cerveja e rissol 🍺 🥟</button>
+	</a>
 </div>
 
 <ButtonHome />

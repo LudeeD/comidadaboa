@@ -5,8 +5,6 @@
 <br />
 <br />
 <hr />
-<center>
-    <form action="/">
-        <input type="submit" value="Voltar 🏠" />
-    </form>
-</center>
+<form style="float:right" action="/">
+    <input type="submit" value="Casa 🏠" />
+</form>

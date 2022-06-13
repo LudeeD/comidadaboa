@@ -29,6 +29,9 @@
     let gotoinfo = () => {
         goto("/info");
     };
+    let gotoplano = () => {
+        goto("/plano");
+    };
 </script>
 
 <svelte:head>
@@ -49,7 +52,7 @@
 <hr />
 
 <button>Receitas 📚</button>
-<button>Planear 📜</button>
+<button on:click={gotoplano}>Planear 📜</button>
 <button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <style>

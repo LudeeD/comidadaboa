@@ -47,7 +47,7 @@
 <br />
 <br />
 
-<details>
+<details open>
     <summary>Ingredientes</summary>
     <ul>
         {#each ingredients as name}
@@ -56,7 +56,7 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>Preparação</summary>
     <ol>
         {#each instructions as name}
@@ -65,4 +65,16 @@
     </ol>
 </details>
 
-<ButtonHome />
+<br /><br />
+<hr />
+<label for="cars">Planear</label>
+<select name="cars" id="cars">
+    <option value="volvo">segunda-feira</option>
+    <option value="saab">terça-feira</option>
+    <option value="saab">quarta-feira</option>
+    <option value="saab">quinta-feira</option>
+    <option value="saab">sexta-feira</option>
+    <option value="saab">sábado</option>
+    <option value="saab">domingo</option>
+</select>
+<input type="submit" value="Guardar" />
