@@ -1,9 +1,11 @@
+//import { timeout } from '$lib/timeout';
+
 import 'dotenv/config'
 
-export async function get({ params }) {
-    const id = params.slug;
+export async function get() {
     const api_key = process.env.SECRET_API_KEY ?? "demo"
-    const response = await fetch('https://api.comidadaboa.com/recipe/' + id, {
+
+    const response = await fetch('http://127.0.0.1:8000/recipe/latest', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -16,5 +18,4 @@ export async function get({ params }) {
     return {
         body: jason
     };
-
 }

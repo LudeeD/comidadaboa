@@ -1,12 +1,12 @@
 <script context="module">
     export async function load({ fetch }) {
-        const response = await fetch("/api/recent");
+        const response = await fetch("/api/recente");
         const recipes = await response.json();
 
         if (response.ok) {
             let ret = {
                 props: {
-                    recipes: recipes["recipes"],
+                    recipes,
                 },
             };
             return ret;
@@ -32,6 +32,9 @@
     let gotoplano = () => {
         goto("/plano");
     };
+    let gotorecipe = (id) => {
+        goto("/receitas/" + id);
+    };
 </script>
 
 <svelte:head>
@@ -43,8 +46,10 @@
 </center>
 
 <h3>Receitas Novas</h3>
-{#each recipes as name}
-    <p>- {name}</p>
+{#each recipes as { recipe_id, title }}
+    <p on:click={gotorecipe(recipe_id)}>
+        - {title}
+    </p>
 {/each}
 
 <br />
