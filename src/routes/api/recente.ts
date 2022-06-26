@@ -4,8 +4,9 @@ import 'dotenv/config'
 
 export async function get() {
     const api_key = process.env.SECRET_API_KEY ?? "demo"
+    const url = process.env.SECRET_URL ?? "http://127.0.0.1:8000"
 
-    const response = await fetch('http://127.0.0.1:8000/recipe/latest', {
+    const response = await fetch(url + '/recipe/latest', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
