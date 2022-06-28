@@ -4,8 +4,6 @@
         const response = await fetch("/api/receitas/" + id);
         const receita = await response.json();
 
-        console.log(receita);
-
         if (response.ok) {
             let ret = {
                 props: {
