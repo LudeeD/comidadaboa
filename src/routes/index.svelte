@@ -38,10 +38,6 @@
     };
 </script>
 
-<svelte:head>
-    <title>Página Inicial</title>
-</svelte:head>
-
 <p>
     <strong>E que tal: </strong><a href="/receitas/{random['recipe_id']}"
         >{random["title"]}</a
