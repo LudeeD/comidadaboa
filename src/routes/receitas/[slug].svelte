@@ -32,23 +32,46 @@
     import ButtonRandom from "$lib/ButtonRandom.svelte";
     import ButtonHome from "$lib/ButtonHome.svelte";
 
-    let subtitle = "demo";
+    import { goto } from "$app/navigation";
+
+    let gotohome = () => {
+        goto("/");
+    };
+    let subtitle = "";
     //`<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
 </script>
 
-<ButtonRandom text={"Apetece-me outra coisa 🔄"} />
-
 <h2 style="margin-bottom: 0px;">{title}</h2>
+<hr />
 <small>{@html subtitle}</small>
+<div class="title">
+    <button on:click={gotohome} style="margin-right: auto"
+        ><span>🔙 voltar</span></button
+    >
+    <button><span>planear 📅</span></button>
+    <button><span>comprar 🛒</span></button>
+</div>
 
 <br />
+
+<details open>
+    <summary />
+    <center>
+        <img alt="dish" src="http://localhost:8000/demo.jpeg" />
+    </center>
+</details>
+
 <br />
 
 <details open>
     <summary>Ingredientes</summary>
     <ul>
-        {#each ingredients as name}
-            <li>{name["name"]}</li>
+        {#each ingredients as ing}
+            <li>
+                {ing["name"]}
+                {ing["quantity_value"]}
+                {ing["quantity_type"]}
+            </li>
         {/each}
     </ul>
 </details>
@@ -62,16 +85,28 @@
     </ol>
 </details>
 
-<br /><br />
 <hr />
-<label for="cars">Planear</label>
-<select name="cars" id="cars">
-    <option value="volvo">segunda-feira</option>
-    <option value="saab">terça-feira</option>
-    <option value="saab">quarta-feira</option>
-    <option value="saab">quinta-feira</option>
-    <option value="saab">sexta-feira</option>
-    <option value="saab">sábado</option>
-    <option value="saab">domingo</option>
-</select>
-<input type="submit" value="Guardar" />
+
+<p>
+    Comida da Boa feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a>
+</p>
+
+<style>
+    .title {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    button {
+        font-family: inherit;
+    }
+    img {
+        max-width: 300px;
+        max-height: 225px;
+    }
+
+    li:nth-child(odd) {
+        background: #ebecf0;
+    }
+</style>

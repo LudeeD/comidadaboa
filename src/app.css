@@ -1,7 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 1em; }
+  font-size: 1.2em;
+}
 
 button {
   font-family: inherit;
-  font-size: 1em; }
+  font-size: 1em;
+}

@@ -36,10 +36,35 @@
     let gotoplano = () => {
         goto("/plano");
     };
+
+    let emogilist = [
+        "🥑",
+        "🍆",
+        "🥕",
+        "🥦",
+        "🧅",
+        "🍄",
+        "🍖",
+        "🌮",
+        "🌯",
+        "🍲",
+        "🥣",
+        "🥗",
+        "🍤",
+        "🥦",
+    ];
+
+    const randomEmogi = emogilist[Math.floor(Math.random() * emogilist.length)];
+    const randomEmogi2 =
+        emogilist[Math.floor(Math.random() * emogilist.length)];
 </script>
 
+<center>
+    <h1>{randomEmogi2} Comida da Boa {randomEmogi}</h1>
+</center>
+
 <p>
-    <strong>E que tal: </strong><a href="/receitas/{random['recipe_id']}"
+    <strong>Sugestão do dia: </strong><a href="/receitas/{random['recipe_id']}"
         >{random["title"]}</a
     >
 </p>
@@ -67,16 +92,22 @@
 
 <hr />
 
-<button on:click={gotoplano}>Plano 🗺️</button>
-<button on:click={gotoplano}>Compras 📝️</button>
+<button on:click={gotoplano}>Plano 📅</button>
+<button on:click={gotoplano}>Compras 🛒</button>
 <button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <hr />
+<p>feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a></p>
 
 <style>
     a:visited {
         color: LinkText;
         background-color: transparent;
         text-decoration: none;
+    }
+
+    h1 {
+        color: #02020b;
+        font-size: 2em;
     }
 </style>
