@@ -93,7 +93,11 @@
 <hr />
 
 <button on:click={gotoplano}>Plano 📅</button>
-<button on:click={gotoplano}>Compras 🛒</button>
+<button
+    on:click={() => {
+        goto("/lista");
+    }}>Compras 🛒</button
+>
 <button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <hr />
