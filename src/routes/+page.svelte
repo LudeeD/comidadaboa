@@ -1,30 +1,6 @@
-<script context="module">
-    export async function load({ fetch, url }) {
-        const response = await fetch("/api/receitas" + url.search);
-        const recipes = await response.json();
-
-        let query = url.searchParams.get("q") ?? "";
-
-        if (response.ok) {
-            let ret = {
-                props: {
-                    recipes,
-                    query,
-                },
-            };
-            return ret;
-        }
-
-        return {
-            status: response.status,
-            error: new Error("Could not fetch the guide"),
-        };
-    }
-</script>
-
 <script>
-    export let recipes;
-    export let query;
+    export let data;
+    $: ({ recipes, query } = data);
 
     let random = recipes[Math.floor(Math.random() * recipes.length)];
 

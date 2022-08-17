@@ -1,7 +1,5 @@
-<script context="module">
+<script>
 	import ButtonHome from "$lib/ButtonHome.svelte";
-
-	export const prerender = true;
 </script>
 
 <svelte:head>

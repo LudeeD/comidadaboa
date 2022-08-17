@@ -1,33 +1,6 @@
-<script context="module">
-    export async function load({ fetch, params }) {
-        const id = params.slug;
-        const response = await fetch("/api/receitas/" + id);
-        const receita = await response.json();
-
-        if (response.ok) {
-            let ret = {
-                props: {
-                    title: receita["name"],
-                    attributes: receita["attributes"],
-                    ingredients: receita["ingredients"],
-                    instructions: receita["instructions"],
-                },
-            };
-            return ret;
-        }
-
-        return {
-            status: response.status,
-            error: new Error("Could not fetch the guide"),
-        };
-    }
-</script>
-
 <script>
-    export let title;
-    export let attributes;
-    export let ingredients;
-    export let instructions;
+    export let data;
+    $: ({ title, attributes, ingredients, instructions } = data);
 
     import ButtonRandom from "$lib/ButtonRandom.svelte";
     import ButtonHome from "$lib/ButtonHome.svelte";
