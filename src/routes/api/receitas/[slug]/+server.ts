@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-export async function get({ params }) {
+export async function GET({ params }) {
     const id = params.slug;
     const api_key = process.env.SECRET_API_KEY ?? "demo"
     const response = await fetch('https://api.comidadaboa.com/recipe/' + id, {

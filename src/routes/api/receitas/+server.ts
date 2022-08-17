@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-export async function get({ url }) {
+export async function GET({ url }) {
     try {
         const api_key = process.env.SECRET_API_KEY ?? "demo"
         const api = process.env.SECRET_URL ?? "http://127.0.0.1:8000"

@@ -5,13 +5,13 @@
   "scripts": {
     "style": "node-sass --omit-source-map-url src/main.scss src/app.css",
     "predev": "node-sass --omit-source-map-url src/main.scss src/app.css",
-    "dev": "svelte-kit dev",
+    "dev": "vite dev",
     "prebuild": "node-sass --omit-source-map-url src/main.scss src/app.css",
-    "build": "svelte-kit build",
+    "build": "vite build",
     "prepackage": "node-sass --omit-source-map-url src/main.scss src/app.css",
-    "package": "svelte-kit package",
+    "package": "vite package",
     "prepreview": "node-sass --omit-source-map-url src/main.scss src/app.css",
-    "preview": "svelte-kit preview"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
@@ -21,7 +21,8 @@
     "node-sass": "^7.0.1",
     "postcss": "^8.4.12",
     "svelte": "^3.46.0",
-    "svelte-preprocess": "^4.10.6"
+    "svelte-preprocess": "^4.10.6",
+    "vite": "^3.0.8"
   },
   "type": "module",
   "dependencies": {
