@@ -1,4 +1,6 @@
 <script>
+    import { goto } from "$app/navigation";
+    import Banner from "$lib/Banner.svelte";
     export let data;
 
     const recipes = data.recipes;
@@ -6,46 +8,16 @@
 
     let random = recipes[Math.floor(Math.random() * recipes.length)];
 
-    import { goto } from "$app/navigation";
-
     let gotoinfo = () => {
         goto("/info");
     };
     let gotoplano = () => {
         goto("/plano");
     };
-
-    let emogilist = [
-        "🥑",
-        "🍆",
-        "🥕",
-        "🥦",
-        "🧅",
-        "🍄",
-        "🍖",
-        "🌮",
-        "🌯",
-        "🍲",
-        "🥣",
-        "🥗",
-        "🍤",
-        "🥦",
-    ];
-
-    const randomEmogi = emogilist[Math.floor(Math.random() * emogilist.length)];
-    const randomEmogi2 =
-        emogilist[Math.floor(Math.random() * emogilist.length)];
 </script>
 
-<center>
-    <h1>{randomEmogi2} Comida da Boa {randomEmogi}</h1>
-</center>
+<Banner />
 
-<p>
-    <strong>Sugestão do dia: </strong><a href="/receitas/{random['recipe_id']}"
-        >{random["title"]}</a
-    >
-</p>
 <br />
 
 <form action="/">
@@ -58,12 +30,20 @@
         placeholder="pesquisar e.g: frango & massa"
     />
 </form>
-<br />
+
+<center>
+    <h3 style="margin-bottom: 2px;">E se for...</h3>
+    <a href="/receitas/{random['recipe_id']}">{random["title"]}</a>
+</center>
 
 <h3>Receitas</h3>
 {#each recipes as { recipe_id, title }}
     <a href="/receitas/{recipe_id}"><p>{title}</p></a>
 {/each}
+
+<center>
+    <button on:click={gotoplano}>Ver todas 👀</button>
+</center>
 
 <br />
 <br />
@@ -79,7 +59,6 @@
 <button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <hr />
-<p>feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a></p>
 
 <style>
     a:visited {

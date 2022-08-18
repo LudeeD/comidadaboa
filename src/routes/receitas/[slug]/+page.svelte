@@ -1,11 +1,12 @@
 <script>
     export let data;
-    $: ({ title, attributes, ingredients, instructions } = data);
+    $: ({ id, title, attributes, ingredients, instructions } = data);
 
     import ButtonRandom from "$lib/ButtonRandom.svelte";
     import ButtonHome from "$lib/ButtonHome.svelte";
 
     import { goto } from "$app/navigation";
+    import Banner from "$lib/Banner.svelte";
 
     let gotohome = () => {
         goto("/");
@@ -14,13 +15,12 @@
     //`<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
 </script>
 
+<Banner />
+
 <h2 style="margin-bottom: 0px;">{title}</h2>
 <hr />
 <small>{@html subtitle}</small>
 <div class="title">
-    <button on:click={gotohome} style="margin-right: auto"
-        ><span>🔙 voltar</span></button
-    >
     <button><span>planear 📅</span></button>
     <button><span>comprar 🛒</span></button>
 </div>
@@ -30,7 +30,7 @@
 <details open>
     <summary />
     <center>
-        <img alt="dish" src="http://localhost:8000/demo.jpeg" />
+        <img alt="dish" src="https://api.comidadaboa.com/images/{id}.jpg" />
     </center>
 </details>
 
@@ -59,10 +59,6 @@
 </details>
 
 <hr />
-
-<p>
-    Comida da Boa feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a>
-</p>
 
 <style>
     .title {

@@ -16,6 +16,7 @@ export async function load({ params }) {
     if (response.ok) {
         const receita = await response.json();
         return {
+            id: id,
             title: receita["name"],
             attributes: receita["attributes"],
             ingredients: receita["ingredients"],
