@@ -1,6 +1,8 @@
 <script>
     export let data;
-    $: ({ recipes, query } = data);
+
+    const recipes = data.recipes;
+    const query = data.query;
 
     let random = recipes[Math.floor(Math.random() * recipes.length)];
 
