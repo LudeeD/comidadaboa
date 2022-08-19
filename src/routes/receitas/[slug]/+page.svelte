@@ -2,15 +2,8 @@
     export let data;
     $: ({ id, title, attributes, ingredients, instructions } = data);
 
-    import ButtonRandom from "$lib/ButtonRandom.svelte";
-    import ButtonHome from "$lib/ButtonHome.svelte";
-
-    import { goto } from "$app/navigation";
     import Banner from "$lib/Banner.svelte";
 
-    let gotohome = () => {
-        goto("/");
-    };
     let subtitle = "";
     //`<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
 </script>
