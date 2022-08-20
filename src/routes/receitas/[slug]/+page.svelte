@@ -3,6 +3,7 @@
     $: ({ id, title, attributes, ingredients, instructions } = data);
 
     import Banner from "$lib/Banner.svelte";
+    import { onMount } from "svelte";
 
     let subtitle = "";
     //`<a href="${attributes["link"]}">link</a> | pessoas: ${attributes["pessoas"]} | Kcal: ${attributes["Kcal"]} | duração: ${attributes["duração"]} min`;
@@ -13,9 +14,9 @@
 <h2 style="margin-bottom: 0px;">{title}</h2>
 <hr />
 <small>{@html subtitle}</small>
-<div class="title">
-    <button><span>planear 📅</span></button>
-    <button><span>comprar 🛒</span></button>
+<div>
+    <button disabled>Adicionar ao plano 📅</button>
+    <button disabled>Comprar ingredientes 🛒</button>
 </div>
 
 <br />
@@ -23,7 +24,10 @@
 <details open>
     <summary />
     <center>
-        <img alt="dish" src="https://api.comidadaboa.com/images/{id}.jpg" />
+        <img
+            alt="Prato sem imagem (para já...) 😅"
+            src="https://api.comidadaboa.com/images/{id}.jpg"
+        />
     </center>
 </details>
 
@@ -54,15 +58,6 @@
 <hr />
 
 <style>
-    .title {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-    }
-
-    button {
-        font-family: inherit;
-    }
     img {
         max-width: 300px;
         max-height: 225px;

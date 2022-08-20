@@ -1,4 +1,6 @@
 <script>
+    import { goto } from "$app/navigation";
+
     let emogilist = [
         "🥑",
         "🍆",
@@ -21,7 +23,7 @@
         emogilist[Math.floor(Math.random() * emogilist.length)];
 </script>
 
-<center>
+<center on:click={() => goto("/")}>
     <h1 style="margin-bottom: 2px;">
         {randomEmogi2} Comida da Boa {randomEmogi}
     </h1>

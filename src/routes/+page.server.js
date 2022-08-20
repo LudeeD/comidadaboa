@@ -3,7 +3,6 @@ import { error } from '@sveltejs/kit';
 export const prerender = true
 
 export async function load({ url }) {
-    console.log("LOAD on INDEX")
     const search = url.search
     const api_key = process.env.SECRET_API_KEY ?? ""
     const api = process.env.SECRET_URL ?? " http://127.0.0.1:8000"

@@ -42,7 +42,7 @@
 {/each}
 
 <center>
-    <button on:click={gotoplano}>Ver todas 👀</button>
+    <button disabled on:click={gotoplano}>Ver todas 👀</button>
 </center>
 
 <br />

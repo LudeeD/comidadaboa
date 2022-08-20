@@ -1,10 +1,10 @@
 <script>
     import { shopping } from "$lib/shopping_store";
     import { goto } from "$app/navigation";
+    import Banner from "$lib/Banner.svelte";
 
     let query = "";
     const addToShopping = () => {
-        console.log("ADd " + query);
         $shopping = [
             ...$shopping,
             {
@@ -21,9 +21,7 @@
     };
 </script>
 
-<center>
-    <h1>🛒 Comida da Boa 🛒</h1>
-</center>
+<Banner />
 
 <form onsubmit="return false;">
     <div style="display: flex;">

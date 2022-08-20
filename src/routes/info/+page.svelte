@@ -1,10 +1,12 @@
 <script>
-	import ButtonHome from "$lib/ButtonHome.svelte";
+	import Banner from "$lib/Banner.svelte";
 </script>
 
 <svelte:head>
 	<title>Sobre</title>
 </svelte:head>
+
+<Banner />
 
 <div>
 	<h2>O que é isto?</h2>
@@ -23,12 +25,9 @@
 
 	<h2>Adorei o site, e até gostava de ajudar, como posso fazer ?</h2>
 
-	<a href="https://www.paypal.com/donate/?hosted_button_id=Q6H5M9KWP8TKN">
-		<button> Oferecer cerveja e rissol 🍺 🥟</button>
-	</a>
+	<center>
+		<a href="https://www.paypal.com/donate/?hosted_button_id=Q6H5M9KWP8TKN">
+			<button> Oferecer cerveja e rissol 🍺 🥟</button>
+		</a>
+	</center>
 </div>
-
-<ButtonHome />
-
-<style>
-</style>

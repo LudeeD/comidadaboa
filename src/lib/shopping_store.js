@@ -5,7 +5,6 @@ import { browser } from "$app/env"
 const defaultValue = []
 const initialValue = browser ? JSON.parse(window.localStorage.getItem('shopping')) ?? defaultValue : defaultValue;
 
-console.log(initialValue)
 export const shopping = writable(initialValue)
 
 shopping.subscribe((value) => {
