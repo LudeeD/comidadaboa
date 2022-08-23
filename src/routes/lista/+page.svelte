@@ -4,6 +4,7 @@
     import Banner from "$lib/Banner.svelte";
 
     let query = "";
+
     const addToShopping = () => {
         $shopping = [
             ...$shopping,

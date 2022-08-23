@@ -61,11 +61,7 @@
 <hr />
 
 <style>
-    a:visited {
-        color: LinkText;
-        background-color: transparent;
-        text-decoration: none;
-    }
+
 
     h1 {
         color: #02020b;
