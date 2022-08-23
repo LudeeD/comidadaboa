@@ -18,7 +18,7 @@
     };
 
     const clearShopping = () => {
-        $shopping = [];
+        $shopping = $shopping.filter((elem) => !elem.checked);
     };
 </script>
 
@@ -58,19 +58,13 @@
 </fieldset>
 
 <br />
-<button on:click={clearShopping} value="Submit">Apagar lista</button>
+<button on:click={clearShopping} value="Submit">Limpar lista 🗑️</button>
+<br />
 <br />
 
 <hr />
-
-<button on:click={() => goto("/")}>🔙 Voltar</button>
-<button on:click={() => goto("/plano")}>Plano 📅</button>
-<button style="float: right;" on:click={() => goto("/info")}
-    >Informações ℹ️</button
->
-
+<button on:click={() => goto("/plano")}>Plano Semanal 📅</button>
 <hr />
-<p>feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a></p>
 
 <style>
     a:visited {

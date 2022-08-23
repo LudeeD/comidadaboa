@@ -50,19 +50,17 @@
 
 <hr />
 
-<button on:click={gotoplano}>Plano 📅</button>
+<button on:click={gotoplano}>Plano semanal 📅</button>
 <button
     on:click={() => {
         goto("/lista");
-    }}>Compras 🛒</button
+    }}>Lista compras 🛒</button
 >
 <button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
 
 <hr />
 
 <style>
-
-
     h1 {
         color: #02020b;
         font-size: 2em;

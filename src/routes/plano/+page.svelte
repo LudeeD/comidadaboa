@@ -5,6 +5,22 @@
     import { planning } from "$lib/meal_plan";
 
     let removesItems = true;
+
+    const getIngredientsForPlan = () => {
+        let ids = $planning.map((elem) => elem.id);
+        let query = "";
+        if (ids.length > 0) {
+            query += ids[0];
+        }
+        if (ids.length > 1) {
+            for (let index = 1; index < ids.length; index++) {
+                query += "," + ids[index];
+            }
+        }
+        console.log(query);
+
+        goto("/plano/ingredientes?q=" + query);
+    };
 </script>
 
 <Banner />
@@ -23,13 +39,15 @@
             } else {
                 return;
             }
+        } else {
+            $planning = [];
+            goto("/plano/novo");
         }
     }}>Gerar novo plano 🎲</button
 >
 <button
-    disabled
     on:click={() => {
-        goto("/lista");
+        getIngredientsForPlan();
     }}>Gerar Lista Compras 🛒</button
 >
 <button
