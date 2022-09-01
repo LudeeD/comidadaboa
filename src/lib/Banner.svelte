@@ -33,9 +33,14 @@
 </center>
 
 <style>
-    a:visited {
-        color: LinkText;
-        background-color: transparent;
-        text-decoration: none;
+    h1 {
+        font-size: 3em;
+        font-weight: 900;
+    }
+    @media (max-width: 48em) {
+        h1 {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
     }
 </style>

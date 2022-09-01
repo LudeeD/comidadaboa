@@ -42,25 +42,59 @@
 {/each}
 
 <center>
-    <button disabled on:click={gotoplano}>Ver todas 👀</button>
+    <button class="pure-button roundButton" disabled on:click={gotoplano}
+        >Ver todas 👀</button
+    >
 </center>
 
 <br />
+
+<hr />
+<div id="actions">
+    <button class="pure-button roundButton" on:click={gotoplano}
+        >Plano semanal 📅</button
+    >
+    <button
+        class="pure-button roundButton"
+        on:click={() => {
+            goto("/lista");
+        }}>Lista compras 🛒</button
+    >
+    <button class="pure-button infoButton roundButton" on:click={gotoinfo}
+        >Informações ℹ️</button
+    >
+</div>
+<hr />
+
+<br />
 <br />
 
-<hr />
-
-<button on:click={gotoplano}>Plano semanal 📅</button>
-<button
-    on:click={() => {
-        goto("/lista");
-    }}>Lista compras 🛒</button
->
-<button style="float: right;" on:click={gotoinfo}>Informações ℹ️</button>
-
-<hr />
-
 <style>
+    .roundButton {
+        border-radius: 5px;
+    }
+
+    button {
+        min-width: 165px;
+        background-color: #fb5607;
+        color: white;
+    }
+
+    @media (min-width: 48em) {
+        .infoButton {
+            margin-left: auto;
+        }
+
+        a {
+            font-size: large;
+        }
+    }
+
+    #actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
     h1 {
         color: #02020b;
         font-size: 2em;

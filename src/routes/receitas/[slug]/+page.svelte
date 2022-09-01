@@ -14,38 +14,40 @@
 <h2 style="margin-bottom: 0px;">{title}</h2>
 <hr />
 <small>{@html subtitle}</small>
-<div>
-    <button disabled>Adicionar ao plano 📅</button>
-    <button disabled>Comprar ingredientes 🛒</button>
+<div id="actions">
+    <button class="pure-button" disabled>Adicionar ao plano 📅</button>
+    <button class="pure-button " disabled>Comprar ingredientes 🛒</button>
 </div>
 
 <br />
 
 <details open>
-    <summary />
-    <center>
-        <img
-            alt="Prato sem imagem (para já...) 😅"
-            src="https://api.comidadaboa.com/images/{id}.jpg"
-        />
-    </center>
-</details>
-
-<br />
-
-<details open>
     <summary>Ingredientes</summary>
-    <ul>
-        {#each ingredients as ing}
-            <li>
-                {ing["name"]}
-                {ing["quantity_value"]}
-                {ing["quantity_type"]}
-            </li>
-        {/each}
-    </ul>
-</details>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <ul>
+                {#each ingredients as ing}
+                    <li>
+                        {ing["name"]}
+                        {ing["quantity_value"]}
+                        {ing["quantity_type"]}
+                    </li>
+                {/each}
+            </ul>
+        </div>
 
+        <div class="pure-u-1-2">
+            <center>
+                <img
+                    class="pure-img lefties"
+                    alt="Prato sem imagem (para já...) 😅"
+                    src="https://api.comidadaboa.com/images/{id}.jpg"
+                />
+            </center>
+        </div>
+    </div>
+</details>
+<br />
 <details>
     <summary>Preparação</summary>
     <ol>
@@ -58,11 +60,22 @@
 <hr />
 
 <style>
-    img {
-        max-width: 300px;
-        max-height: 225px;
+    button {
+        min-width: 165px;
+        background-color: #fb5607;
+        color: white;
     }
-
+    #actions {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    @media (max-width: 48em) {
+        .pure-u-1-2 {
+            width: 100%;
+        }
+    }
     li:nth-child(odd) {
         background: #ebecf0;
     }
