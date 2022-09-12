@@ -1,20 +1,38 @@
-# Comida da Boa
+# create-svelte
 
-The source code for the website behind comidadaboa.com
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Features
+## Creating a project
 
-- Recipes & Ingredients ☑️
-- Meal plan generation ☑️
-- Shopping List ☑️
-- Shopping List from Meal Plan ☑️
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Screenshots
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-![Screenshot 2022-08-24 192513](https://user-images.githubusercontent.com/9322214/186495577-99950fe5-f06e-4e21-a90b-ab102ca7b532.png)
+# create a new project in comidadaboa
+npm create svelte@latest comidadaboa
+```
 
-![Screenshot 2022-08-24 192530](https://user-images.githubusercontent.com/9322214/186495588-77512791-4897-4d9b-91fb-aee2fd7d7983.png)
+## Developing
 
-![Screenshot 2022-08-24 193048](https://user-images.githubusercontent.com/9322214/186495927-a99816c7-9a32-4c36-9b7d-139f8e738006.png)
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-![Screenshot 2022-08-24 193113](https://user-images.githubusercontent.com/9322214/186495940-8da85919-7022-4e62-84c0-bed73adf753c.png)
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

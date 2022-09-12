@@ -1,102 +1,119 @@
 <script>
-    import { goto } from "$app/navigation";
-    import Banner from "$lib/Banner.svelte";
-    export let data;
+	import Banner from '$lib/Banner.svelte';
 
-    const recipes = data.recipes;
-    const query = data.query;
+	import { onMount } from 'svelte';
+	export let data;
 
-    let random = recipes[Math.floor(Math.random() * recipes.length)];
+	let index = data.index;
 
-    let gotoinfo = () => {
-        goto("/info");
-    };
-    let gotoplano = () => {
-        goto("/plano");
-    };
+	let docs = index.documentStore.docs;
+
+	console.log(docs);
+
+	let recipes = Object.entries(docs);
+
+	let query = '';
+
+	let demo;
+
+	const onSubmit = (e) => {
+		const formData = new FormData(e.target);
+
+		const data = {};
+		for (let field of formData) {
+			const [key, value] = field;
+			data[key] = value;
+		}
+
+		if (data.q.length == 0) {
+			recipes = Object.entries(docs);
+		} else {
+			let results = demo.search(data.q).map((obj) => parseInt(obj.ref));
+
+			console.log(results);
+
+			recipes = recipes.filter((elem) => {
+				return results.includes(parseInt(elem[0]));
+			});
+		}
+	};
+
+	onMount(() => {
+		demo = elasticlunr.Index.load(index);
+	});
 </script>
 
 <Banner />
 
 <br />
 
-<form action="/">
-    <input
-        style="width: 100%; box-sizing: border-box; min-height:40px"
-        type="text"
-        id="pesquisa"
-        name="q"
-        value={query}
-        placeholder="pesquisar e.g: frango & massa"
-    />
+<form on:submit|preventDefault={onSubmit}>
+	<input
+		style="width: 100%; box-sizing: border-box; min-height:40px; border: none; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); padding: 2px 16px"
+		type="search"
+		id="pesquisa"
+		name="q"
+		value={query}
+		placeholder="pesquisar e.g: frango & massa"
+	/>
 </form>
 
-<center>
-    <h3 style="margin-bottom: 2px;">E se for...</h3>
-    <a href="/receitas/{random['recipe_id']}">{random["title"]}</a>
-</center>
-
-<h3>Receitas</h3>
-{#each recipes as { recipe_id, title }}
-    <a href="/receitas/{recipe_id}"><p>{title}</p></a>
-{/each}
-
-<center>
-    <button class="pure-button roundButton" disabled on:click={gotoplano}
-        >Ver todas 👀</button
-    >
-</center>
+<center />
 
 <br />
 
-<hr />
-<div id="actions">
-    <button class="pure-button roundButton" on:click={gotoplano}
-        >Plano semanal 📅</button
-    >
-    <button
-        class="pure-button roundButton"
-        on:click={() => {
-            goto("/lista");
-        }}>Lista compras 🛒</button
-    >
-    <button class="pure-button infoButton roundButton" on:click={gotoinfo}
-        >Informações ℹ️</button
-    >
+<br />
+
+<div class="card">
+	<div class="container">
+		{#each recipes as [key, value]}
+			<a href="/recipes/{key}"><p>{value.title}</p></a>
+		{/each}
+	</div>
 </div>
-<hr />
-
-<br />
-<br />
 
 <style>
-    .roundButton {
-        border-radius: 5px;
-    }
+	.card {
+		/* Add shadows to create the "card" effect */
+		background-color: white;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.3s;
+	}
 
-    button {
-        min-width: 165px;
-        background-color: #fb5607;
-        color: white;
-    }
+	/* Add some padding inside the card container */
+	.container {
+		padding: 2px 16px;
+	}
 
-    @media (min-width: 48em) {
-        .infoButton {
-            margin-left: auto;
-        }
+	/* Place the navbar at the bottom of the page, and make it stick */
+	.navbar {
+		background-color: #333;
+		overflow: hidden;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
 
-        a {
-            font-size: large;
-        }
-    }
+	/* Style the links inside the navigation bar */
+	.navbar a {
+		float: left;
+		display: block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 17px;
+	}
 
-    #actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    h1 {
-        color: #02020b;
-        font-size: 2em;
-    }
+	/* Change the color of links on hover */
+	.navbar a:hover {
+		background-color: #ddd;
+		color: black;
+	}
+
+	/* Add a color to the active/current link */
+	.navbar a.active {
+		background-color: #04aa6d;
+		color: white;
+	}
 </style>

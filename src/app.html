@@ -3,35 +3,16 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="description" content="Site com comidinha da boa" />
-
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-	<meta name="apple-mobile-web-app-title" content="Comida da Boa">
-	<meta name="application-name" content="Comida da Boa">
-	<meta name="msapplication-TileColor" content="#00aba9">
-	<meta name="theme-color" content="#ffffff">
-
-	<meta name="viewport"
-		content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-
-	<meta property="og:site_name" content="Comida da Boa">
-	<meta property="og:title" content="Comida da Boa" />
-	<meta property="og:description" content="site de receitas sem tretas" />
-	<meta property="og:type" content="website" />
-
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<title>Comida da Boa</title>
-
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width" />
+	<script src="%sveltekit.assets%/search/elasticlunr.min.js"></script>
+	<script src="%sveltekit.assets%/search/lunr.stemmer.support.cjs"></script>
+	<script src="%sveltekit.assets%/search/lunr.pt.cjs"></script>
 	%sveltekit.head%
 </head>
 
 <body>
-	<div id="svelte">%sveltekit.body%</div>
+	<div>%sveltekit.body%</div>
 </body>
 
 </html>
