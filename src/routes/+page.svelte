@@ -67,7 +67,7 @@
 <div class="card">
 	<div class="container">
 		{#each recipes as [key, value]}
-			<a href="/recipes/{key}"><p>{value.title}</p></a>
+			<a href="/comidadaboa/recipes/{key}"><p>{value.title}</p></a>
 		{/each}
 	</div>
 </div>
