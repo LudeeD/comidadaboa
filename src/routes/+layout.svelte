@@ -7,7 +7,7 @@
 </div>
 
 <div class="navbar">
-	<a href="/list" class="pure-button nav-button">Info 👨‍🍳</a>
+	<a href="/list" class="pure-button nav-button">Info 👨</a>
 	<a href="/list" class="pure-button nav-button">Lista 🛒</a>
 	<a href="#news" class="pure-button nav-button">Plano 📅</a>
 </div>
