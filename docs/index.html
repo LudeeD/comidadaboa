@@ -1,75 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" href="./favicon.png" />
-	<meta name="viewport" content="width=device-width" />
-	<script src="./search/elasticlunr.min.js"></script>
-	<script src="./search/lunr.stemmer.support.cjs"></script>
-	<script src="./search/lunr.pt.cjs"></script>
-	<meta http-equiv="content-security-policy" content="">
-	<link href="./_app/immutable/assets/_layout-df85c6de.css" rel="stylesheet">
-	<link href="./_app/immutable/assets/_page-c1d5db30.css" rel="stylesheet">
-	<link href="./_app/immutable/assets/Banner-98f0898c.css" rel="stylesheet">
-	<link rel="modulepreload" href="./_app/immutable/start-45731816.js">
-	<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-aa6bc0ce.js">
-	<link rel="modulepreload" href="./_app/immutable/chunks/index-1b1d3edd.js">
-	<link rel="modulepreload" href="./_app/immutable/chunks/singletons-36acd93c.js">
-	<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-c187c1c0.js">
-	<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-ed800f4d.js">
-	<link rel="modulepreload" href="./_app/immutable/chunks/Banner-146e4525.js">
-	<link rel="modulepreload" href="./_app/immutable/modules/pages/_page.js-01434903.js">
-	<link rel="modulepreload" href="./_app/immutable/chunks/_page-289b6bb6.js">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥗 Comida da Boa 🥗</title>
+    <meta name="description" content="Receitas sem tretas">
+    <meta name="author" content="Luís Silva">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
 </head>
 
 <body>
-	<div>
+    <header>
+        <nav>
+            <a class="brand" href="index.html">
+                <h1 style="width: max-content;">🥗 Comida da Boa 🥗</h1>
+            </a>
+            <span class="separator"></span>
+            <!--a href="/list">Lista 🛒</a>
+            <a href="#news">Plano 📅</a-->
+        </nav>
+        <hr>
+    </header>
+
+    <ul>
+        <li><a href="0.html">Carbonara de cogumelos</a></li>
+        <li><a href="1.html">Caril de Grão de Bico</a></li>
+        <li><a href="2.html">Frango com bróculos</a></li>
+        <li><a href="3.html">Massa com Pesto</a></li>
+        <li><a href="4.html">Quiche de cogumelos e espinafres</a></li>
+        <li><a href="5.html">Risotto de Cogumelos</a></li>
+        <li><a href="6.html">Rolinhos de frango recheados com espargos</a></li>
+        <li><a href="7.html">Salada de abacate e atum</a></li>
+    </ul>
 
 
-<div id="content" class="svelte-138pmbd"><center><h1 style="margin-bottom: 2px;" class="svelte-1byb9rv">🥣 Comida da Boa 🥕</h1>
-    <p style="margin-top: 2px;">feito com ❤ por <a href="https://luissilva.eu">Luís Silva</a></p>
-</center>
-
-<br>
-
-<form><input style="width: 100%; box-sizing: border-box; min-height:40px; border: none; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); padding: 2px 16px" type="search" id="pesquisa" name="q" value="" placeholder="pesquisar e.g: frango & massa"></form>
-
-<center></center>
-
-<br>
-
-<br>
-
-<div class="card svelte-1scpfnb"><div class="container svelte-1scpfnb"><a href="/recipes/0"><p>Carbonara de cogumelos</p></a><a href="/recipes/1"><p>Caril de Grão de Bico</p></a><a href="/recipes/2"><p>Frango com bróculos</p></a><a href="/recipes/3"><p>Massa com Pesto</p></a><a href="/recipes/4"><p>Quiche de cogumelos e espinafres</p></a><a href="/recipes/5"><p>Risotto de Cogumelos</p></a><a href="/recipes/6"><p>Rolinhos de frango recheados com espargos</p></a><a href="/recipes/7"><p>Salada de abacate e atum</p></a></div>
-</div></div>
-
-<div class="navbar svelte-138pmbd"><a href="/list" class="pure-button nav-button svelte-138pmbd">Info 👨‍🍳</a>
-	<a href="/list" class="pure-button nav-button svelte-138pmbd">Lista 🛒</a>
-	<a href="#news" class="pure-button nav-button svelte-138pmbd">Plano 📅</a>
-</div>
-
-
-		<script type="module" data-sveltekit-hydrate="wijnlc">
-		import { start } from "./_app/immutable/start-45731816.js";
-
-		start({
-			env: {},
-			hydrate: {
-				status: 200,
-				error: null,
-				node_ids: [0, 2],
-				params: {},
-				routeId: "",
-				data: (function(a){return [a,a]}(null)),
-				form: null
-			},
-			paths: {"base":"","assets":""},
-			target: document.querySelector('[data-sveltekit-hydrate="wijnlc"]').parentNode,
-			trailing_slash: "never"
-		});
-	</script>
-	</div>
+    <footer>
+        <span style="margin-right: auto;">Made with ❤ and <a
+                href="https://github.com/LudeeD/prandium">prandium</a></span>
+        <span><a href="https://luissilva.eu">Luís Silva</a>, 2022-10-25</span>
+    </footer>
+    <hr>
 </body>
+
+<style>
+    body {
+        font-size: larger;
+    }
+
+    .separator {
+        margin-left: auto;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+    }
+
+    .brand {
+        color: black;
+    }
+
+    button {
+        margin-right: 0;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 600px) {
+        body {
+            font-size: medium;
+        }
+
+        nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0px 20px;
+        }
+
+        h1 {
+            margin-bottom: 0px;
+        }
+
+        .separator {
+            display: none;
+        }
+    }
+</style>
 
 </html>

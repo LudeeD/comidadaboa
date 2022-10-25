@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥗 Comida da Boa 🥗</title>
+    <meta name="description" content="Receitas sem tretas">
+    <meta name="author" content="Luís Silva">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="brand" href="index.html">
+                <h1 style="width: max-content;">🥗 Comida da Boa 🥗</h1>
+            </a>
+            <span class="separator"></span>
+            <!-- a href="/list">Lista 🛒</a>
+            <a href="#news">Plano 📅</a-->
+        </nav>
+        <hr>
+    </header>
+
+    <article class="h-recipe">
+
+        <h2 class="p-name">Rolinhos de frango recheados com espargos</h2>
+        <div style="display: flex; gap: 20px">
+            <!--a style="align-self: center;" href="/list">Adicionar à lista
+                🛒</a>
+            <a style="align-self: center;" href="#news">Adicionar ao plano 📅</a-->
+
+        </div>
+
+        <div class="recipe">
+
+            <div class="recipe-ingredients">
+                <h3>Ingredientes</h3>
+                <ul>
+                    <li class="p-ingredient"><code>2 c.sopa </code> azeite </li>
+                    <li class="p-ingredient"><code>40 g </code> tomate seco </li>
+                    <li class="p-ingredient"><code>250 g </code> courgette </li>
+                    <li class="p-ingredient"><code>250 g </code> esparguete </li>
+                    <li class="p-ingredient"><code>240 g </code> tomate </li>
+                    <li class="p-ingredient"><code>1 q.b. </code> orégãos </li>
+                    <li class="p-ingredient"><code>400 g </code> bifes de frango </li>
+                    <li class="p-ingredient"><code>2 c.chá </code> sal </li>
+                    <li class="p-ingredient"><code>1 q.b. </code> pimenta </li>
+                    <li class="p-ingredient"><code>1 meia.unidade </code> limão </li>
+                    <li class="p-ingredient"><code>320 g </code> espargos </li>
+                    <li class="p-ingredient"><code>2 unidade </code> alho </li>
+                </ul>
+            </div>
+
+            <div class="recipe-instructions">
+                <h3>Instruções</h3>
+                <div class="e-instructions">
+                    <ol class="alter">
+                        <li>Temperar os bifes com sal, pimenta moída e sumo de limão. (guardar a casca do limão)</li>
+                        <li>Preparar os espargos (tirar parte fibrosa)</li>
+                        <li>Descascar, picar, alourar em azeite os alhos. Juntas os espargos e saltear [3-4 min]</li>
+                        <li>Ao mesmo tempo, picar o tomate seco e cortar a courgette em meias luas</li>
+                        <li>Dividir os espargos pelos bifes e enrolar. Alourar. Reservar os bifes.</li>
+                        <li>Adicionar ao tacho azeite, courgette e o tomate seco. Temperar com sal. Cozinhar em lume moderado [20 min]</li>
+                        <li>Usar as raspas de limão ao cozer o esparguete. Juntar ao tacho da courgette.</li>
+                        <li>Dispor os rolos sobre o esparguete com legumes. Acompanha com o tomate em gomos polvilhado com orégãos.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+        <center>
+            <img src="http://placekitten.com/320/320"></img>
+        </center>
+    </article>
+
+
+    <footer>
+        <span style="margin-right: auto;">Made with ❤ and <a
+                href="https://github.com/LudeeD/prandium">prandium</a></span>
+        <span><a href=https://luissilva.eu>Luís Silva</a>, 2022-10-25</span>
+    </footer>
+    <hr>
+</body>
+
+<style>
+    body {
+        font-size: larger;
+    }
+
+    .separator {
+        margin-left: auto;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+    }
+
+    .brand {
+        color: black;
+    }
+
+    button {
+        margin-right: 0;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .alter>li:nth-child(odd) {
+        background: #efefef;
+    }
+
+    .recipe {
+        display: flex;
+    }
+
+    .recipe-instructions {
+        width: 70%;
+    }
+
+    .recipe-ingredients {
+        width: 30%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        body {
+            font-size: medium;
+        }
+
+        nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0px 20px;
+        }
+
+        h1 {
+            margin-bottom: 0px;
+        }
+
+        .separator {
+            display: none;
+        }
+
+        .recipe {
+            flex-wrap: wrap;
+        }
+
+        .recipe-instructions {
+            width: 100%;
+        }
+
+        .recipe-ingredients {
+            width: 100%;
+        }
+    }
+</style>
+
+</html>
