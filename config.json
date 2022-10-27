@@ -4,6 +4,7 @@
   "output_folder": "./docs",
   "description": "Receitas sem tretas",
   "title": "🥗 Comida da Boa 🥗",
+  "base_url": "https://ludeed.github.io/comidadaboa/",
   "translations": {
     "ingredients": "Ingredientes",
     "instructions": "Instruções"
