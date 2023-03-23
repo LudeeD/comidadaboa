@@ -10,8 +10,13 @@ If you're seeing this, you've probably already done this step. Congrats!
 # create a new project in the current directory
 npm create svelte@latest
 
+<<<<<<< HEAD
 # create a new project in comidadaboa
 npm create svelte@latest comidadaboa
+=======
+# create a new project in my-app
+npm create svelte@latest my-app
+>>>>>>> 067fee3a926982eb0e9d735d73a435d026d5d1f0
 ```
 
 ## Developing
