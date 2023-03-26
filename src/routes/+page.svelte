@@ -1,7 +1,11 @@
 <script>
+    import Nav from "../components/Nav.svelte";
+
     export let data;
     let search = "";
 </script>
+
+<Nav />
 
 <article class="card" style="margin-left: 4px; margin-right: 4px">
     <header>

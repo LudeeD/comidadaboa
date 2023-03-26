@@ -1,9 +1,26 @@
 <script>
     import { onMount } from "svelte";
     import pako from "pako";
+    import Nav from "../../components/Nav.svelte";
 
     let menu = [];
     let ingredients = [];
+    let days = [
+        "Seg A",
+        "Seg J",
+        "Ter A",
+        "Ter J",
+        "Qua A",
+        "Qua J",
+        "Qui A",
+        "Qui J",
+        "Sex A",
+        "Sex J",
+        "Sab A",
+        "Sab J",
+        "Dom A",
+        "Dom J",
+    ];
 
     let new_recipe = "";
 
@@ -30,7 +47,12 @@
 
     onMount(async () => {
         const menudata = localStorage.getItem("menu") || "[]";
-        menu = JSON.parse(menudata);
+        const menujson = JSON.parse(menudata);
+        menu = menujson.sort((a, b) => {
+            if (a.day < b.day) return -1;
+            if (a.day > b.day) return 1;
+            return 0;
+        });
         update_menu_ingredients();
     });
 
@@ -41,55 +63,137 @@
         update_menu_ingredients();
     };
 
+    const updateDay = (index) => {
+        const recipe = menu[index];
+        const currentDay = recipe.day || 0;
+        recipe.day = (currentDay + 1) % 14;
+        localStorage.setItem("menu", JSON.stringify(menu));
+        let ordered_menu_by_day = menu.sort((a, b) => {
+            if (a.day < b.day) return -1;
+            if (a.day > b.day) return 1;
+            return 0;
+        });
+        menu = [...ordered_menu_by_day];
+        update_menu_ingredients();
+    };
+
     const share = () => {
         const state = localStorage.getItem("menu") || "[]";
         const compressed = pako.deflate(state);
         console.log(compressed);
         //console.log(btoa(compressed));
     };
+
+    const addToListSelectedIngredients = () => {
+        const selectedIngredients = ingredients.filter(
+            (ing, index) => document.getElementById(index).checked
+        );
+        const currIngredients = JSON.parse(
+            localStorage.getItem("list") || "[]"
+        );
+        const ingredientsString = selectedIngredients.map(
+            (ing) => `${ing.name} ${ing.quantity}${ing.unit}`
+        );
+        currIngredients.push(...ingredientsString);
+
+        localStorage.setItem("list", JSON.stringify(currIngredients));
+    };
+
+    const addAllIngredients = () => {
+        const ingredientsString = ingredients.map(
+            (ing) => `${ing.name} ${ing.quantity}${ing.unit}`
+        );
+        const currIngredients = JSON.parse(
+            localStorage.getItem("list") || "[]"
+        );
+        currIngredients.push(...ingredientsString);
+
+        localStorage.setItem("list", JSON.stringify(currIngredients));
+    };
+
+    const clean = () => {
+        localStorage.setItem("menu", "[]");
+        menu = [];
+        ingredients = [];
+    };
 </script>
 
+<Nav />
 <article class="card" style="margin-left: 4px; margin-right: 4px">
     <header>
         <h3>Menu</h3>
     </header>
-
-    <div class="tabs two" style="padding: 4px">
-        <input id="tab-1" type="radio" name="tabgroupB" checked />
-        <label class="pseudo button toggle tablabel" for="tab-1">Plano</label>
-        <input id="tab-2" type="radio" name="tabgroupB" />
-        <label class="pseudo button toggle tablabel" for="tab-2"
-            >Ingredientes</label
-        >
-        <div class="row">
-            <div>
-                {#each menu as item, index}
+    <div>
+        <ul>
+            {#each menu as item, index}
+                <li>
                     <div
-                        style="display: flex; align-items: center; justify-content: space-between;"
+                        style="display: flex; justify-content: space-around; align-items: baseline;"
                     >
-                        <button
-                            on:click={() => removeFromMenu(index)}
-                            class="colorbtn">🗙</button
+                        <span>{item.title}</span>
+                        <button on:click={() => updateDay(index)}
+                            >{days[item.day || 0]}</button
                         >
-                        <p>{item.title}</p>
                     </div>
-                {/each}
-            </div>
-
-            <div>
-                <ul>
-                    {#each ingredients as ing}
-                        <li>{ing.name} {ing.quantity}{ing.unit}</li>
-                    {/each}
-                </ul>
-            </div>
-        </div>
+                </li>
+            {/each}
+        </ul>
     </div>
-    <footer>
-        <button on:click={share}>Partilhar Menu</button>
-        <button on:click={share}>Adicionar ingredientes à lista</button>
-    </footer>
+    {#if menu.length > 0}
+        <footer style="display: flex; justify-content: space-around ">
+            <button class="error" on:click={clean}>Limpar</button>
+            <label for="modal_1" class="button">Partilhar</label>
+        </footer>
+    {/if}
 </article>
+
+<article class="card" style="margin-left: 4px; margin-right: 4px">
+    <header>
+        <h3>Ingredientes do Menu</h3>
+    </header>
+    <div
+        style="display: flex; padding-left: 32px; padding-top: 32px; flex-direction: column"
+    >
+        {#each ingredients as ing, index}
+            <label>
+                <input type="checkbox" id={index} />
+                <span class="checkable"
+                    >{ing.name} {ing.quantity}{ing.unit}</span
+                >
+            </label>
+        {/each}
+    </div>
+    {#if ingredients.length > 0}
+        <footer
+            style="display: flex; justify-content: space-around; align-items:baseline"
+        >
+            <p>+ Lista 🛒</p>
+            <button class="button" on:click={addToListSelectedIngredients}
+                >Seleção</button
+            >
+            <button class="button" on:click={addAllIngredients}>Todos</button>
+        </footer>
+    {/if}
+</article>
+
+<div class="modal">
+    <input id="modal_1" type="checkbox" />
+    <label for="modal_1" class="overlay" />
+    <article>
+        <header>
+            <h3>Great offer</h3>
+            <label for="modal_1" class="close">&times;</label>
+        </header>
+        <section class="content">
+            We have a special offer for you. I am sure you will love it! However
+            this does look spammy...
+        </section>
+        <footer>
+            <a class="button" href="#">See offer</a>
+            <label for="modal_1" class="button dangerous"> Cancel </label>
+        </footer>
+    </article>
+</div>
 
 <style>
     .colorbtn {

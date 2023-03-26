@@ -1,0 +1,94 @@
+{
+    "title": "Massada de Peixe",
+    "link": "https://www.24kitchen.pt/receita/massada-de-peixe",
+    "servings": 4,
+    "Kcal": null,
+    "duration": null,
+    "ingredients": [
+        {
+            "name": "azeite",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "cebola",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "malagueta",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "folhas de louro",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "dentes de alho",
+            "quantity": 3,
+            "unit": ""
+        },
+        {
+            "name": "pimento vermelho",
+            "quantity": 0.5,
+            "unit": ""
+        },
+        {
+            "name": "tomate picado",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "vinho branco",
+            "quantity": "3",
+            "unit": ""
+        },
+        {
+            "name": "caldo de peixe",
+            "quantity": "1500",
+            "unit": "ml"
+        },
+        {
+            "name": "massa cotovelinhos",
+            "quantity": "500",
+            "unit": "g"
+        },
+        {
+            "name": "tamboril",
+            "info": "sem pele nem espinhas",
+            "quantity": "800",
+            "unit": "g"
+        },
+        {
+            "name": "camarão 30-40",
+            "quantity": "125",
+            "unit": "gr"
+        },
+        {
+            "name": "coentros",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "hortelã",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "amido de milho",
+            "quantity": 1,
+            "unit": "q.b"
+        }
+    ],
+    "instructions": [
+        "Refogue a cebola picada num fio de azeite com o louro e a malagueta, numa panela espaçosa.",
+        "Depois de refogar um pouco, junte os dentes de alho picados e o pimento vermelho em cubos pequenos.",
+        "Refogue mais um pouco e depois acrescente o tomate picado e o vinho branco. Mexa e deixe o álcool evaporar.",
+        "Junte o caldo de peixe, tempere de sal e, assim que levantar fervura, junte a massa de cotovelinhos.",
+        "Deixe cozer por 8-10 minutos. A meio tempo, coloque o tamboril cortado em cubos e de seguida o camarão.",
+        "Se quiser mais goma no caldo, junte 1/2 colher de chá de amido de milho com um pouco de água e junte à panela.",
+        "Junte alguns ramos de coentros picados e hortelã fresca e podemos desligar o lume e tapar. Deixe a apurar mais 5 minutos tapado."
+    ]
+}

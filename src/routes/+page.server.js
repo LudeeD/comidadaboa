@@ -3,7 +3,7 @@ import fs from 'fs';
 export function load({ params }) {
     const titles = loadRecipeTitlesFromFolder()
 
-    console.log(titles)
+    // console.log(titles)
 
     return {
         recipes: titles

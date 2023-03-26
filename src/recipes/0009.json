@@ -1,0 +1,41 @@
+{
+    "title": "Brownies",
+    "link": "https://www.24kitchen.pt/receita/brownie-com-marshmallow",
+    "servings": 8,
+    "Kcal": 999,
+    "duration": "30 min",
+    "ingredients": [
+        {
+            "name": "chocolate amargo",
+            "quantity": 250,
+            "unit": "g"
+        },
+        {
+            "name": "manteiga com sal",
+            "quantity": 150,
+            "unit": "g"
+        },
+        {
+            "name": "açúcar amarelo",
+            "quantity": 275,
+            "unit": "g"
+        },
+        {
+            "name": "ovos",
+            "quantity": 3,
+            "unit": "g"
+        },
+        {
+            "name": "farinha de trigo",
+            "quantity": 85,
+            "unit": "g"
+        }
+    ],
+    "instructions": [
+        "Derreta o chocolate com a manteiga numa taça, em banho-maria.",
+        "Mexa bem o chocolate, para garantir que não há pedaços e junte o açúcar amarelo e misture bem. Depois adicione 3 ovos, um a um, batendo a cada adição. ",
+        "Junte a farinha peneirada e envolva, sem bater.",
+        "Deite a mistura num tabuleiro quadrado de palmo e meio por palmo e meio e leve ao forno pre-aquecido a 180ºC, por 15 minutos.",
+        "Passado esse tempo, tire do forno e junte alguns marshmallows, enfiados verticalmente na massa, sem chegar as laterais, e leve ao forno por cerca de 5 minutos, só para derreter e ganharem uma corzinha."
+    ]
+}

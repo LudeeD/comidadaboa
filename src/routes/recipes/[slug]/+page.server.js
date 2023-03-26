@@ -2,10 +2,10 @@ import fs from 'fs';
 
 export function load({ params }) {
     // load data from the file system
-    console.log("wow")
+    // console.log("wow")
     const recipe = getRecipeBySlug(params.slug);
 
-    console.log(recipe)
+    // console.log(recipe)
     recipe.slug = params.slug;
 
     return recipe;

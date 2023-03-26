@@ -9,34 +9,48 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<link rel="icon"
+		href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍🍳</text></svg>">
 	<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.46b82231.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.e577b7ed.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.51e2b78c.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.97c47960.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.8d5a61c0.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.33da8ed0.js">
+		<link href="./_app/immutable/assets/_layout.164a7b2e.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/Nav.15ed1b2b.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.2b0f0999.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.15f599cf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.00ef5572.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.f1ef3ffe.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.5ea3111e.js">
 		<link rel="modulepreload" href="./_app/immutable/entry/_layout.js.984db11e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.d597a448.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.0191d70e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Nav.3849fd70.js">
 </head>
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">
 
 
-<div style="overflow: hidden;height: 60px;"><nav class="navbar svelte-64tr10"><a href="/" class="brand">👨‍🍳 Comida da Boa</a>
+<div style="overflow: hidden;height: 60px;"><nav class="navbar svelte-yiherm"><a href="/" class="brand">👨‍🍳 Comida da Boa</a>
 
         <input id="bmenub" type="checkbox" class="show">
         <label for="bmenub" class="burger pseudo button">≡</label>
 
         <div class="menu"><a href="/" class="pseudo button">📜 Receitas</a>
             <a href="/menu" class="pseudo button">📅 Menu Semanal</a>
-            <a href="/list" class="pseudo button">🛒 Lista de Compras</a></div></nav></div>
+            <a href="/list" class="pseudo button">🛒 Lista de Compras</a></div></nav>
+</div>
 
 <article class="card" style="margin-left: 4px; margin-right: 4px"><header><h3>Receitas</h3></header>
     <ul><li><a href="/recipes/0001">Carbonara de cogumelos</a>
-            </li><li><a href="/recipes/0002">Carbonara de cogumelos</a>
+            </li><li><a href="/recipes/0002">Caril de Grão de Bico</a>
+            </li><li><a href="/recipes/0003">Frango com bróculos</a>
+            </li><li><a href="/recipes/0004">Massa com Pesto</a>
+            </li><li><a href="/recipes/0005">Quiche de cogumelos e espinafres</a>
+            </li><li><a href="/recipes/0006">Risotto de Cogumelos</a>
+            </li><li><a href="/recipes/0007">Rolinhos de frango recheados com espargos</a>
+            </li><li><a href="/recipes/0008">Salada de abacate e atum</a>
+            </li><li><a href="/recipes/0009">Brownies</a>
+            </li><li><a href="/recipes/0010">Massada de Peixe</a>
+            </li><li><a href="/recipes/0011">Ratatouille</a>
             </li></ul></article>
 
 
@@ -45,19 +59,19 @@
 			
 			<script>
 				{
-					__sveltekit_1mqkxee = {
+					__sveltekit_xtbe34 = {
 						env: {},
 						base: new URL(".", location).pathname.slice(0, -1),
 						element: document.currentScript.parentElement
 					};
 
-					const data = [null,{"type":"data","data":{recipes:[{slug:"0001",title:"Carbonara de cogumelos"},{slug:"0002",title:"Carbonara de cogumelos"}]},"uses":{}}];
+					const data = [null,{"type":"data","data":{recipes:[{slug:"0001",title:"Carbonara de cogumelos"},{slug:"0002",title:"Caril de Grão de Bico"},{slug:"0003",title:"Frango com bróculos"},{slug:"0004",title:"Massa com Pesto"},{slug:"0005",title:"Quiche de cogumelos e espinafres"},{slug:"0006",title:"Risotto de Cogumelos"},{slug:"0007",title:"Rolinhos de frango recheados com espargos"},{slug:"0008",title:"Salada de abacate e atum"},{slug:"0009",title:"Brownies"},{slug:"0010",title:"Massada de Peixe"},{slug:"0011",title:"Ratatouille"}]},"uses":{}}];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.e577b7ed.js"),
-						import("./_app/immutable/entry/app.8d5a61c0.js")
+						import("./_app/immutable/entry/start.2b0f0999.js"),
+						import("./_app/immutable/entry/app.f1ef3ffe.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1mqkxee.element, {
+						kit.start(app, __sveltekit_xtbe34.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,

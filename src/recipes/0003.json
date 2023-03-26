@@ -1,0 +1,47 @@
+{
+    "title": "Frango com bróculos",
+    "link": "link",
+    "servings": 2,
+    "Kcal": 999,
+    "duration": "30 min",
+    "ingredients": [
+        {
+            "name": "peito de frango",
+            "quantity": "200",
+            "unit": "g"
+        },
+        {
+            "name": "bróculos",
+            "quantity": "1",
+            "unit": ""
+        },
+        {
+            "name": "amêndoas",
+            "quantity": "200",
+            "unit": "g"
+        },
+        {
+            "name": "arroz basmati",
+            "quantity": "180",
+            "unit": "g"
+        },
+        {
+            "name": "azeite",
+            "quantity": "",
+            "unit": "q.b."
+        },
+        {
+            "name": "molho de soja",
+            "quantity": "",
+            "unit": "q.b."
+        }
+    ],
+    "instructions": [
+        "Começar a cozinhar o arroz",
+        "Cortar o frango e os bróculos em pequenos pedaços",
+        "Colocar o frango na frigideira com azeite e deixar cozinhar",
+        "Adicionar os bróculos, as amêndoas e o molho de soja",
+        "Envolver tudo",
+        "Servir"
+    ]
+}

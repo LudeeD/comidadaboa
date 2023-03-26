@@ -1,0 +1,58 @@
+{
+    "title": "Quiche de cogumelos e espinafres",
+    "link": "",
+    "servings": 2,
+    "calories": 999,
+    "duration": 60,
+    "ingredients": [
+        {
+            "name": "ovos",
+            "quantity": 4,
+            "unit": ""
+        },
+        {
+            "name": "iogurte grego",
+            "quantity": 200,
+            "unit": "g"
+        },
+        {
+            "name": "queijo ralado",
+            "quantity": 100,
+            "unit": "g"
+        },
+        {
+            "name": "cogumelos",
+            "quantity": 300,
+            "unit": "g"
+        },
+        {
+            "name": "espinafres",
+            "quantity": 200,
+            "unit": "g"
+        },
+        {
+            "name": "sal",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "pimenta",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "tomilho",
+            "quantity": 1,
+            "unit": "q.b."
+        }
+    ],
+    "instructions": [
+        "Ligar o forno [180*]",
+        "Saltear os cogumelos e os espinafres",
+        "Bater os ovos, juntar os iogurtes e temperar com sal, pimenta e tomilho",
+        "Juntar o queijo ralado à mistura",
+        "Num tabuleiro de ir ao forno meter os cogumelos espinafres",
+        "Deitar a mistela por cima",
+        "Vai ao forno [45-50 min]"
+    ]
+}

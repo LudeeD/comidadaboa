@@ -1,0 +1,52 @@
+{
+    "title": "Massa com Pesto",
+    "link": "link",
+    "servings": 2,
+    "Kcal": 999,
+    "duration": 20,
+    "ingredients": [
+        {
+            "name": "massa",
+            "quantity": 160,
+            "unit": "g"
+        },
+        {
+            "name": "alho",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "tomate cherry",
+            "quantity": 250,
+            "unit": "g"
+        },
+        {
+            "name": "pesto",
+            "quantity": 100,
+            "unit": "g"
+        },
+        {
+            "name": "ovos",
+            "quantity": 2,
+            "unit": ""
+        },
+        {
+            "name": "parmesão",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "sal",
+            "quantity": 1,
+            "unit": "q.b."
+        }
+    ],
+    "instructions": [
+        "Cozer a massa (não esquecer o sal)",
+        "Picar alho e saltear com tomate cherry na frigideira",
+        "Quando a massa estiver quase cozida, adicionar o pesto na frigideira.",
+        "Assim que a massa estiver pronta adicionar à frigideira e envolver",
+        "Tirar tudo para um uma taça, para estrelar os ovos",
+        "Polvilhar com o queijo ralado e servir com os ovos a cavalo"
+    ]
+}

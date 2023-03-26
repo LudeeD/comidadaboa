@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import pako from "pako";
+    import Nav from "../../components/Nav.svelte";
 
     let list = [];
     let new_item = "";
@@ -41,20 +42,21 @@
     };
 </script>
 
+<Nav />
 <article class="card" style="margin-left: 4px; margin-right: 4px">
     <header>
         <h3>Lista de Compras</h3>
     </header>
-    <ul>
+    <div
+        style="display: flex; padding-left: 32px; padding-top: 32px; flex-direction: column"
+    >
         {#each list as item, index}
-            <li>
-                <label>
-                    <input type="checkbox" id={index} />
-                    <span class="checkable">{item}</span>
-                </label>
-            </li>
+            <label>
+                <input type="checkbox" id={index} />
+                <span class="checkable">{item}</span>
+            </label>
         {/each}
-    </ul>
+    </div>
     <p />
     <form
         on:submit={() => {
@@ -70,8 +72,29 @@
             placeholder="Adicionar item..."
         />
     </form>
-    <footer>
-        <button on:click={share}>Partilhar</button>
-        <button on:click={clean}>Limpar</button>
-    </footer>
+    {#if list.length > 0}
+        <footer style="display: flex; justify-content: space-around ">
+            <button class="error" on:click={clean}>Limpar</button>
+            <label for="modal_2" class="button">Partilhar</label>
+        </footer>
+    {/if}
 </article>
+
+<div class="modal">
+    <input id="modal_2" type="checkbox" />
+    <label for="modal_2" class="overlay" />
+    <article>
+        <header>
+            <h3>Great offer</h3>
+            <label for="modal_2" class="close">&times;</label>
+        </header>
+        <section class="content">
+            We have a special offer for you. I am sure you will love it! However
+            this does look spammy...
+        </section>
+        <footer>
+            <a class="button" href="#">See offer</a>
+            <label for="modal_2" class="button dangerous"> Cancel </label>
+        </footer>
+    </article>
+</div>

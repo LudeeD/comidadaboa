@@ -1,0 +1,65 @@
+{
+    "title": "Risotto de Cogumelos",
+    "link": "",
+    "servings": 2,
+    "calories": 999,
+    "duration": 30,
+    "ingredients": [
+        {
+            "name": "Cogumelos",
+            "quantity": "200",
+            "unit": "g"
+        },
+        {
+            "name": "Arroz de risotto",
+            "quantity": "125",
+            "unit": "g"
+        },
+        {
+            "name": "Caldo de legumes",
+            "quantity": "1",
+            "unit": ""
+        },
+        {
+            "name": "Água",
+            "quantity": "600",
+            "unit": "ml"
+        },
+        {
+            "name": "Cebola",
+            "quantity": "1/2",
+            "unit": ""
+        },
+        {
+            "name": "Alho",
+            "quantity": "2",
+            "unit": ""
+        },
+        {
+            "name": "Manteiga",
+            "quantity": "10",
+            "unit": "g"
+        },
+        {
+            "name": "Parmesão",
+            "quantity": "q.b.",
+            "unit": ""
+        },
+        {
+            "name": "Vinho branco",
+            "quantity": "q.b.",
+            "unit": ""
+        }
+    ],
+    "instructions": [
+        "Preparar o caldo de legumes",
+        "Picar cebola, alho e refogar",
+        "Adicionar o arroz",
+        "Deitar vinho e mexer até evaporar",
+        "Ir deitando o caldo de legumes para o arroz cozer em lume brando, durante cerca de 20 min",
+        "Enquanto o arroz coze, saltear os cogumelos e juntar ao arroz a 5 min do fim",
+        "Desligar o lume",
+        "Deitar uma colher de chá de manteiga e duas colheres de parmesão ralado",
+        "Envolver e servir com mais parmesão"
+    ]
+}

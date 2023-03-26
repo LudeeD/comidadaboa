@@ -1,34 +1,39 @@
 {
-    "title": "Carbonara de cogumelos",
-    "link": "https://www.kikkoman.pt/receitas/recipe-detail/r/carbonara-de-cogumelos/",
-    "servings": 4,
-    "Kcal": 587,
+    "title": "Caril de Grão de Bico",
+    "link": "link",
+    "servings": 2,
+    "Kcal": 999,
     "duration": "30 min",
     "ingredients": [
         {
-            "name": "esparguete",
-            "quantity": "350",
+            "name": "grão de bico",
+            "quantity": "500",
             "unit": "g"
         },
         {
-            "name": "azeite",
-            "quantity": "",
-            "unit": "q.b"
+            "name": "leite de coco",
+            "quantity": "200",
+            "unit": "ml"
         },
         {
-            "name": "chalotas banana",
-            "quantity": "2",
+            "name": "tomate",
+            "quantity": "1",
             "unit": ""
         },
         {
-            "name": "manteiga",
-            "quantity": "25",
-            "unit": "g"
+            "name": "limão",
+            "quantity": "1/2",
+            "unit": ""
         },
         {
-            "name": "cogumelos",
-            "quantity": "500",
-            "unit": "g"
+            "name": "gengibre",
+            "quantity": "1",
+            "unit": "q.b."
+        },
+        {
+            "name": "cebola",
+            "quantity": "1/2",
+            "unit": ""
         },
         {
             "name": "alho",
@@ -36,43 +41,34 @@
             "unit": ""
         },
         {
-            "name": "tomilho",
-            "quantity": "2",
-            "unit": ""
+            "name": "sal",
+            "quantity": "1",
+            "unit": "q.b."
         },
         {
-            "name": "molho de soja",
-            "quantity": "60",
-            "unit": "ml"
+            "name": "pimenta",
+            "quantity": "1",
+            "unit": "q.b."
         },
         {
-            "name": "ovos",
-            "quantity": "3",
-            "unit": ""
+            "name": "caril em pó",
+            "quantity": "1",
+            "unit": "q.b."
         },
         {
-            "name": "parmesão",
-            "quantity": "100",
-            "unit": "g"
-        },
-        {
-            "name": "salsa",
-            "quantity": "",
+            "name": "coentros",
+            "quantity": "1",
             "unit": "q.b."
         }
     ],
     "instructions": [
-        "Cozer a massa",
-        "Enquanto a massa coze, aquecer o azeite e guisar as chalotas com uma pitada de sal [5 min] até estarem moles",
-        "Adicionar a manteiga com a mistura de cogumelos e alourar a temperatura alta até ficarem dourados, reservar cogumelos para decorar",
-        "Juntar o alho, o tomilho e as especiarias e deixar cozinhar durante mais um minuto [1 min]",
-        "Adicionar o molho de soja e continuar a cozinhar até o alho estar alourado",
-        "Numa taça pequena, misturar os ovos com parmesão, reservar um pouco para decorar, e temperar com sal e pimenta",
-        "Reservar uma parte da água de cozer a massa e escorrer a massa",
-        "Juntar e misturar depressa juntamente com a mistura de ovos e um pouco da água da cozedura",
-        "Misturar a massa até que esteja envolta uniformemente pelo molho e o molho não comece a solidificar",
-        "Adicionar eventualmente um pouco mais de água da massa para que a mistura fique bem cremosa",
-        "Envolver e distribuir por 4 pratos",
-        "Polvilhar com os cogumelos reservados e o queijo e servir"
+        "Picar cebola, alho, gengibre e refogar",
+        "Adicionar caril e pimenta, mexer",
+        "Adicionar tomate picado (s/pele) e sumo do limão",
+        "Refogar um pouco",
+        "Adicionar o grão",
+        "Adicionar o leite de coco, temperar com sal",
+        "Deixar levantar fervura, baixar o lume e deixar 2 a 5 min",
+        "Picar coentros para servir"
     ]
 }

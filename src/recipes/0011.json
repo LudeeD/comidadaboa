@@ -1,0 +1,97 @@
+{
+    "title": "Ratatouille",
+    "link": "https://www.24kitchen.pt/receita/ratatouille-joana",
+    "servings": 4,
+    "Kcal": null,
+    "duration": null,
+    "ingredients": [
+        {
+            "name": "batata vermelha",
+            "quantity": 2,
+            "unit": ""
+        },
+        {
+            "name": "beringela",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "batata doce",
+            "quantity": 2,
+            "unit": ""
+        },
+        {
+            "name": "curgete",
+            "quantity": 2,
+            "unit": ""
+        },
+        {
+            "name": "pimento vermelho",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "cebola",
+            "quantity": 3,
+            "unit": ""
+        },
+        {
+            "name": "pimenta preta moída",
+            "quantity": 1,
+            "unit": "q.b"
+        },
+        {
+            "name": "azeite",
+            "quantity": 1,
+            "unit": "q.b"
+        },
+        {
+            "name": "queijo parmesão",
+            "quantity": 1,
+            "unit": "q.b"
+        },
+        {
+            "name": "alho",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "tomates picado",
+            "quantity": 1,
+            "unit": "lata"
+        },
+        {
+            "name": "vinho branco",
+            "quantity": 1,
+            "unit": "q.b"
+        },
+        {
+            "name": "folhas de manjericão fresco",
+            "quantity": 1,
+            "unit": "q.b"
+        },
+        {
+            "name": "açúcar",
+            "quantity": 2,
+            "unit": "c. sobremesa"
+        },
+        {
+            "name": "polpa de tomate",
+            "quantity": 1,
+            "unit": "lata"
+        }
+    ],
+    "instructions": [
+        "Molho de Tomate: Pique finamente1 cebola e junte a um tacho com um bom fio de azeite.",
+        "De seguida, adicione 1 cabeça de alho também bem picada. Refogue até ganhar cor.",
+        "Corte cerca de 20 tomates pelados e sem sementes e junte ao tacho. Mexa, tempere com vinho branco, sal q.be umas folhas de manjericão fresco.",
+        "Tape e coloque em lume branco. Durante, no mínimo 30 minutos, verifique regularmente e retifique temperos.",
+        "Legumes: Enquanto, corte todos os legumes, com casca, em rodelas: 2 batatas vermelhas, 1 beringela, 2 batatas doces, 2 curgetes, 1 pimento vermelho sem as sementes e sem as partes brancas e 2 cebolas.",
+        "Cerca de 20 minutos depois, junte ao molho1 lata de polpa de tomate e tape novamente.",
+        "Quando ferver desligue o lume.",
+        "Preparação: Numa travessa de ir ao forno, coloque uma camada do molho de tomate.",
+        "De seguida, posicione os legumes cortados intercalando-os, em formato de espiral. Se necessário ajuste o tamanho dos mesmos.",
+        "Assim que terminar, regue com 1 fio de azeite e tempere com sal q.b epimenta preta moída q.b.",
+        "Leve ao forno pré-aquecido a 150ºC por cerca de 30 minutos. No final, triture o molho de tomate e sirva um prato de Ratatouille com molho por cima, queijo parmesão ralado e pimenta preta moída q.b."
+    ]
+}
