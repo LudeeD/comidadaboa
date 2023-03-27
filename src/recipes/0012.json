@@ -1,0 +1,92 @@
+{
+    "title": "Galinha com Amêndoas",
+    "link": "https://feed.continente.pt/receitas/galinha-com-ame-ndoas",
+    "servings": 4,
+    "Kcal": null,
+    "duration": "45 min",
+    "ingredients": [
+        {
+            "name": "frango em pedaços",
+            "quantity": 200,
+            "unit": "g"
+        },
+        {
+            "name": "molho de soja",
+            "quantity": 2,
+            "unit": "c.sopa"
+        },
+        {
+            "name": "amido de milho",
+            "quantity": 2,
+            "unit": "c.chá"
+        },
+        {
+            "name": "gengibre em pó",
+            "quantity": 0.5,
+            "unit": "c.chá"
+        },
+        {
+            "name": "amêndoas",
+            "quantity": 100,
+            "unit": "g"
+        },
+        {
+            "name": "óleo de sésamo",
+            "quantity": 1,
+            "unit": "q.b."
+        },
+        {
+            "name": "cebola laminada",
+            "quantity": 1,
+            "unit": ""
+        },
+        {
+            "name": "alho francês",
+            "info": "em rodelas",
+            "quantity": 0.5,
+            "unit": ""
+        },
+        {
+            "name": "cenoura",
+            "info": "em tiras",
+            "quantity": 2,
+            "unit": ""
+        },
+        {
+            "name": "pimento verde",
+            "info": "em tiras",
+            "quantity": 0.5,
+            "unit": ""
+        },
+        {
+            "name": "cogumelos laminados",
+            "quantity": 100,
+            "unit": "g"
+        },
+        {
+            "name": "caldo de carne",
+            "quantity": 150,
+            "unit": "ml"
+        },
+        {
+            "name": "feijão mungo",
+            "quantity": 110,
+            "unit": "g"
+        },
+        {
+            "name": "cebolinho picado",
+            "quantity": null,
+            "unit": "q.b."
+        }
+    ],
+    "instructions": [
+        "Misture o frango em pedaços com o molho de soja, o amido de milho, o gengibre em pó e tempere com sal, envolva bem e deixe marinar por 15 minutos.",
+        "Numa frigideira anti-aderente doure as amêndoas por alguns instantes. Reserve.",
+        "Na mesma frigideira coloque um fio de óleo de sésamo e adicione a cebola laminada e deixe refogar.",
+        "Junte agora o alho francês em rodelas e deixe refogar. De seguida junte as cenouras em tiras, os cogumelos laminados, mexa bem e deixe cozinhar por alguns minutos para que os legumes amoleçam.",
+        "Junte agora o frango marinado e deixe cozinhar por 10 a 15 minutos.",
+        "Adicione o caldo de carne, mexa bem e deixe cozinhar por 5 minutos para engrossar.",
+        "Por último adicione as amêndoas torradas e o feijão mungo. Deixe cozinhar por mais 5 minutos.",
+        "Sirva a galinha com amêndoas e decore com cebolinho picado."
+    ]
+}
