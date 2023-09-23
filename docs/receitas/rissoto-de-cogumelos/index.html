@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Comida da Boa</title>
+    <link rel="stylesheet" href="/simple.min.css">
+    <title></title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>👨‍🍳 Comida da Boa</h1>
+      </nav>
+    </header>
+
+    
+
+<script>
+window.onload = () => {
+    let ls = document.querySelectorAll('li');
+    ls.forEach((ele) => {
+       ele.onclick = (e) => {
+          let targetElement = e.target;
+
+          // Check if the current styles are applied
+          if (targetElement.style.textDecoration === 'line-through') {
+             targetElement.style.textDecoration = 'none';
+          } else {
+             targetElement.style.textDecoration = 'line-through';
+          }
+       };
+    });
+}
+</script>
+
+
+<h1>Rissoto de Cogumelos</h1>
+
+<ul>
+<li>Começar a cozinhar o <mark><nobr>arroz basmati 180g</nobr></mark>
+</li>
+<li>Cortar o <mark><nobr>peito de frango 200g</nobr></mark>
+  e os <mark><nobr>bróculos 1u</nobr></mark>
+ em pequenos pedaços</li>
+<li>Colocar o frango na frigideira com <mark><nobr>azeite q.b</nobr></mark>
+ e deixar cozinhar</li>
+<li>Adicionar os bróculos, as <mark><nobr>amêndoas 200g</nobr></mark>
+ e o <mark><nobr>molho de soja q.b.</nobr></mark>
+</li>
+<li>Envolver tudo</li>
+<li>Servir </li>
+</ul>
+
+
+
+
+    <footer>
+      <p>Feito com ❤️ e 🥲 por <a href="https://ludeed.com/">Luís Silva</a><br>
+      <a href="https://github.com/ludeed/comidadaboa">Contribui com mais receitas</a></p>
+    </footer>
+  </body>
+
+</html>
+
+
