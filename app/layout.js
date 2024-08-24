@@ -1,7 +1,6 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +10,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="max-w-3xl mx-auto p-4 min-h-screen flex flex-col">
+        {children}
+
+        <spacer className="flex-grow"></spacer>
+        <footer className="flex flex-row justify-between text-lg">
+          <p>
+            {" "}
+            Voltar ao{" "}
+            <Link className="underline text-blue-500 font-bold" href="/">
+              Início
+            </Link>
+            🏠{" "}
+          </p>
+          <p>
+            {" "}
+            Created by{" "}
+            <a className="font-bold" href="www.google.com">
+              Luís Silva
+            </a>{" "}
+          </p>
+        </footer>
+      </body>
     </html>
   );
 }
