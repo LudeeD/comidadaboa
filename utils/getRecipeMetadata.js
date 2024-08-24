@@ -3,6 +3,7 @@ import { Recipe } from "@cooklang/cooklang-ts";
 
 export default function getRecipeMetadata() {
   const files = fs.readdirSync(`${process.cwd()}/recipes`, "utf-8");
+  let id = 0;
   const recipes = files
     .filter((fn) => fn.endsWith(".md"))
     .map((fn) => {
@@ -13,11 +14,18 @@ export default function getRecipeMetadata() {
 
       let recipe = new Recipe(rawContent);
 
-      console.log(recipe.metadata);
+      let ingredients_to_index = recipe.ingredients.map((ingredient) => {
+        return ingredient.name;
+      });
 
-      return { slug: fn.replace(/\.md$/, ""), ...recipe.metadata };
+      id += 1;
+      return {
+        id: id,
+        slug: fn.replace(/\.md$/, ""),
+        ...recipe.metadata,
+        ingredients: ingredients_to_index.join(", "),
+      };
     });
 
-  console.log(recipes);
   return recipes;
 }

@@ -22,8 +22,6 @@ export default function RecipePage(props) {
 
   const recipe = getPostContent(slug);
 
-  console.log(recipe);
-
   const Step = ({ part }) => {
     switch (part.type) {
       case "text":

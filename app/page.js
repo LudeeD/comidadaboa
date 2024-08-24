@@ -4,94 +4,78 @@ import Link from "next/link";
 import Search from "./components/search";
 import MiniSearch from "minisearch";
 
+function getRandom(arr, n) {
+  var result = new Array(n),
+    len = arr.length,
+    taken = new Array(len);
+  if (n > len)
+    throw new RangeError("getRandom: more elements taken than available");
+  while (n--) {
+    var x = Math.floor(Math.random() * len);
+    result[n] = arr[x in taken ? taken[x] : x];
+    taken[x] = --len in taken ? taken[len] : len;
+  }
+  return result;
+}
+
 export default function Home() {
   const recipes = getRecipeMetadata();
 
-  // A collection of documents for our examples
-  const documents = [
-    {
-      id: 1,
-      title: "Moby Dick",
-      text: "Call me Ishmael. Some years ago...",
-      category: "fiction",
-    },
-    {
-      id: 2,
-      title: "Zen and the Art of Motorcycle Maintenance",
-      text: "I can see by my watch...",
-      category: "fiction",
-    },
-    {
-      id: 3,
-      title: "Neuromancer",
-      text: "The sky above the port was...",
-      category: "fiction",
-    },
-    {
-      id: 4,
-      title: "Zen and the Art of Archery",
-      text: "At first sight it must seem...",
-      category: "non-fiction",
-    },
-  ];
-
   let miniSearch = new MiniSearch({
-    fields: ["title", "text"], // fields to index for full-text search
-    storeFields: ["title", "category"], // fields to return with search results
+    fields: ["title", "ingredients"], // fields to index for full-text search
+    storeFields: ["title", "slug"], // fields to return with search results
   });
 
-  miniSearch.addAll(documents);
+  miniSearch.addAll(recipes);
 
   let miniSearchJson = JSON.stringify(miniSearch);
 
-  console.log("recipes" + JSON.stringify(recipes));
-
   //const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
-  return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl text-center font-bold mb-8">Comida da boa</h1>
+  let random_suggestions = getRandom(recipes, 1);
 
+  return (
+    <main className="container mx-auto px-4 py-8 text-xl flex flex-col gap-8">
       <Search index={miniSearchJson} />
 
-      <WeeklySuggestions suggestions={recipes} />
+      <WeeklySuggestions suggestions={random_suggestions} />
 
-      <section>
-        <h2 className="text-xl font-semibold mb-4">All Recipes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {recipes.map((recipe) => (
-            <div
-              key={recipe.slug}
-              className="flex flex-col items-center p-4 border rounded-lg"
-            >
-              <Link
-                href={`/recipes/${recipe.slug}`}
-                className="text-blue-600 hover:underline"
-              >
-                {recipe.title}
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+      <div>
+        <h2 className="text-2xl font-semibold mb-4">Todas as receitas</h2>
+        <section className="bg-white rounded-lg py-2 px-4 overflow-auto">
+          <ul className="list-disc list-inside leading-10">
+            {recipes.map((recipe) => (
+              <li key={recipe.slug}>
+                <Link
+                  href={`/recipes/${recipe.slug}`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {recipe.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }
 
 const WeeklySuggestions = ({ suggestions }) => (
-  <section className="my-8">
-    <h2 className="text-xl font-semibold mb-4">Weekly Suggestions</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-4">
-      {suggestions.map((recipe) => (
-        <div key={recipe.slug} className="flex flex-col items-center">
+  <div>
+    <h2 className="text-2xl font-semibold ">Sugestões</h2>
+    <section className="py-2 overflow-auto">
+      <div className="flex flex-row gap-4 flex-wrap">
+        {suggestions.map((recipe) => (
           <Link
+            key={recipe.slug}
             href={`/recipes/${recipe.slug}`}
-            className="text-blue-600 hover:underline"
+            className="bg-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-100 ease-linear text-blue-600 hover:underline hover:cursor-none hover:bg-blue-600 hover:text-white"
           >
             {recipe.title}
           </Link>
-        </div>
-      ))}
-    </div>
-  </section>
+        ))}
+      </div>
+    </section>
+  </div>
 );
