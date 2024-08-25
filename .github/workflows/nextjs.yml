@@ -76,7 +76,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Run indexer
-        run: ${{ steps.detect-package-manager.outputs.runner }} index
+        run: ${{ steps.detect-package-manager.outputs.runner }} pagefind --site out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
