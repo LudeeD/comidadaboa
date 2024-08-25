@@ -15,3 +15,4 @@ A next.js website, statically rendered, hosted on github pages with client side 
 - [ ] shopping list
 - [ ] portion scaling
 - [ ] RSS feed?? maybe
+- [ ] i18n ?? maybe
