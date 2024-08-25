@@ -35,18 +35,18 @@ const Title = () => {
     possible_emogis[Math.floor(Math.random() * possible_emogis.length)];
 
   return (
-    <div className="text-4xl flex justify-center ">
+    <div className="text-4xl flex justify-center items-baseline gap-2 gap-y-0 flex-wrap">
       {random_emoji}
 
-      <h1 className="text-4xl text-center font-bold mb-4">
+      <h1 className="text-4xl text-center font-bold">
         <Link href="/">Comida da boa </Link>
-        <span className="text-sm font-normal">
-          do{" "}
-          <a className="underline" href="www.google.com">
-            Luís Silva
-          </a>
-        </span>
       </h1>
+      <span className="text-sm font-normal">
+        do{" "}
+        <Link className="underline" href="https://about.luissilva.eu">
+          Luís Silva
+        </Link>
+      </span>
     </div>
   );
 };

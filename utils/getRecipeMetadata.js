@@ -5,7 +5,7 @@ export default function getRecipeMetadata() {
   const files = fs.readdirSync(`${process.cwd()}/recipes`, "utf-8");
   let id = 0;
   const recipes = files
-    .filter((fn) => fn.endsWith(".md"))
+    .filter((fn) => fn.endsWith(".cook"))
     .map((fn) => {
       const path = `${process.cwd()}/recipes/${fn}`;
       const rawContent = fs.readFileSync(path, {
@@ -21,7 +21,7 @@ export default function getRecipeMetadata() {
       id += 1;
       return {
         id: id,
-        slug: fn.replace(/\.md$/, ""),
+        slug: fn.replace(/\.cook$/, ""),
         ...recipe.metadata,
         ingredients: ingredients_to_index.join(", "),
       };
