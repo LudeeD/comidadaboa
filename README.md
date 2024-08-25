@@ -11,5 +11,7 @@ A next.js website, statically rendered, hosted on github pages with client side 
 - [X] statically rendered website, hosted on github 
 - [X] basic search
 - [ ] full text search
+- [ ] generate JSON-LD so that google can understand the recipes
 - [ ] shopping list
 - [ ] portion scaling
+- [ ] RSS feed?? maybe
