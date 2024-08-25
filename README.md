@@ -8,7 +8,7 @@ A next.js website, statically rendered, hosted on github pages with client side 
 
 #### TODO
 
-- [X] statically rendered website, hosted on github 
+- [X] statically rendered website, hosted on github
 - [X] basic search
 - [ ] full text search
 - [ ] generate JSON-LD so that google can understand the recipes
@@ -16,3 +16,5 @@ A next.js website, statically rendered, hosted on github pages with client side 
 - [ ] portion scaling
 - [ ] RSS feed?? maybe
 - [ ] i18n ?? maybe
+- [ ] magic timers ?? maybe
+- [ ] condensed view for recipes (merge ingredients and instructions)

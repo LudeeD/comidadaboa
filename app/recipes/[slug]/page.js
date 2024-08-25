@@ -35,6 +35,7 @@ export default function RecipePage(props) {
           alt="Se estás a ler isto é porque não estás a ver a imagem da comida"
           width={600}
           height={600}
+          unoptimized={true}
         />
       );
     }
@@ -44,11 +45,18 @@ export default function RecipePage(props) {
     switch (part.type) {
       case "text":
         return <span>{part.value}</span>;
+      case "timer":
+        return (
+          <span className="font-medium text-red-600">
+            {part.quantity} {part.units}
+          </span>
+        );
       case "ingredient":
         return <span className="font-medium text-green-600">{part.name}</span>;
       case "cookware":
         return <span className="font-medium text-blue-600">{part.name}</span>;
       default:
+        console.log("Unknown part type", part);
         return null;
     }
   };
