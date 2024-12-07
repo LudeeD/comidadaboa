@@ -24,6 +24,7 @@ export default async function RecipePage(props) {
   const { recipe, image } = await getPostContent(slug);
 
   const ingredients = recipe.ingredients;
+  const timers = recipe.timers;
 
   const formatQuantity = (quantity) => {
     if (!quantity || typeof quantity !== "object") return "";
@@ -35,13 +36,22 @@ export default async function RecipePage(props) {
       const fixedValue = quantity.value.value;
       if (fixedValue && fixedValue.type === "number") {
         const numberValue = fixedValue.value;
-        if (numberValue && numberValue.type === "regular") {
-          value = numberValue.value;
+        if (numberValue) {
+          if (numberValue.type === "regular") {
+            value = numberValue.value;
+          } else if (numberValue.type === "fraction") {
+            const fraction = numberValue.value;
+            if (fraction.whole === 0) {
+              value = fraction.num / fraction.den;
+            } else {
+              value = fraction.whole + fraction.num / fraction.den;
+            }
+          }
         }
       }
     }
 
-    // Format the value (assuming it's a number)
+    // Format the value
     const formattedValue = Number(value).toLocaleString(undefined, {
       minimumFractionDigits: 0,
       maximumFractionDigits: 2,
@@ -68,15 +78,31 @@ export default async function RecipePage(props) {
     }
   };
 
+  const formatTimer = (timer) => {
+    if (!timer || !timer.quantity) return "";
+
+    let value = "";
+    let unit = timer.quantity.unit || "";
+
+    if (timer.quantity.value?.type === "fixed") {
+      const numberValue = timer.quantity.value.value?.value;
+      if (numberValue?.type === "regular") {
+        value = numberValue.value;
+      }
+    }
+
+    return `${value} ${unit}`.trim();
+  };
+
   const Step = ({ part }) => {
+    console.log(JSON.stringify(part));
     switch (part.type) {
       case "text":
         return <span>{part.value}</span>;
       case "timer":
+        let timer = timers[part.index];
         return (
-          <span className="font-medium text-red-600">
-            {part.quantity} {part.units}
-          </span>
+          <span className="font-medium text-red-600">{formatTimer(timer)}</span>
         );
       case "ingredient":
         let ingredient = ingredients[part.index];
