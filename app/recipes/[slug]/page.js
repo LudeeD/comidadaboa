@@ -2,6 +2,7 @@ import getRecipeMetadata from "../../../utils/getRecipeMetadata";
 import getPostContent from "../../../utils/getPostContent";
 import Image from "next/image";
 import RecipeContent from "../../components/RecipeContent";
+import WakeLock from "../../components/WakeLock";
 
 export const generateStaticParams = async () => {
   const recipes = getRecipeMetadata();
@@ -150,9 +151,13 @@ export default async function RecipePage(props) {
       
       <main className="bg-red text-lg flex flex-col gap-5 max-w-4xl mx-auto p-4">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-4">
-          {recipeData.metadata.title || slug.replace(/_/g, " ")}
-        </h1>
+        <div className="flex items-center justify-between mb-4">
+          <div></div> {/* Spacer for centering */}
+          <h1 className="text-3xl font-bold">
+            {recipeData.metadata.title || slug.replace(/_/g, " ")}
+          </h1>
+          <WakeLock />
+        </div>
         {/* Recipe metadata */}
         <div className="flex justify-center gap-4 text-sm bg-white/10 rounded-lg p-2">
           {recipeData.metadata.portions && (
