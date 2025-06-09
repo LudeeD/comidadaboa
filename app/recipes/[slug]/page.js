@@ -1,7 +1,7 @@
 import getRecipeMetadata from "../../../utils/getRecipeMetadata";
 import getPostContent from "../../../utils/getPostContent";
 import Image from "next/image";
-import StepList from "../../components/StepList";
+import RecipeContent from "../../components/RecipeContent";
 
 export const generateStaticParams = async () => {
   const recipes = getRecipeMetadata();
@@ -24,16 +24,12 @@ export default async function RecipePage(props) {
   const { slug } = params;
 
   const { recipe, image } = await getPostContent(slug);
-
-  const ingredients = recipe.ingredients;
-
-  const formatQuantity = (quantity, units) => {
-    if (quantity === "some") return "q.b.";
-    if (typeof quantity === "string") return quantity;
-    if (typeof quantity === "number") {
-      return units ? `${quantity} ${units}` : `${quantity}`;
-    }
-    return "";
+  
+  // Serialize the recipe data for client components
+  const recipeData = {
+    ingredients: recipe.ingredients,
+    steps: recipe.steps,
+    metadata: recipe.metadata
   };
 
   // return if exists
@@ -65,47 +61,31 @@ export default async function RecipePage(props) {
     <main className="bg-red text-lg flex flex-col gap-5 max-w-4xl mx-auto p-4">
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-4">
-          {recipe.metadata.title || slug.replace(/_/g, " ")}
+          {recipeData.metadata.title || slug.replace(/_/g, " ")}
         </h1>
         {/* Recipe metadata */}
         <div className="flex justify-center gap-4 text-sm bg-white/10 rounded-lg p-2">
-          {recipe.metadata.portions && (
+          {recipeData.metadata.portions && (
             <div className="flex items-center gap-1">
               <span className="font-semibold">👥</span>
-              <span>{recipe.metadata.portions} porções</span>
+              <span>{recipeData.metadata.portions} porções</span>
             </div>
           )}
-          {recipe.metadata.time && (
+          {recipeData.metadata.time && (
             <div className="flex items-center gap-1">
               <span className="font-semibold">⏱️</span>
-              <span>{recipe.metadata.time}</span>
+              <span>{recipeData.metadata.time}</span>
             </div>
           )}
-          {recipe.metadata.calories && (
+          {recipeData.metadata.calories && (
             <div className="flex items-center gap-1">
               <span className="font-semibold">🔥</span>
-              <span>{recipe.metadata.calories}</span>
+              <span>{recipeData.metadata.calories}</span>
             </div>
           )}
         </div>
       </div>
-      <div className="bg-white rounded-lg px-5 py-3 shadow-sm">
-        <h3 className="mb-2 font-semibold text-lg text-gray-800">Ingredientes</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
-          {recipe.ingredients.map((ingredient, index) => (
-            <div key={index} className="flex items-baseline gap-2 py-0.5 text-base">
-              <span className="text-gray-700">{ingredient.name}</span>
-              <span className="text-gray-400 font-semibold text-sm">
-                {formatQuantity(ingredient.quantity, ingredient.units)}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="bg-white rounded-lg px-5 py-4 shadow-sm">
-        <h3 className="mb-3 font-semibold text-lg text-gray-800">Instruções</h3>
-        <StepList steps={recipe.steps} />
-      </div>
+      <RecipeContent recipe={recipeData} />
 
       <MyImage slug={slug} />
     </main>

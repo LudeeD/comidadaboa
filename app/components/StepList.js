@@ -3,8 +3,15 @@
 import React from "react";
 import Timer from "./Timer";
 
-export default function StepList({ steps }) {
+export default function StepList({ steps, onQuantitiesToggle }) {
   const [completedSteps, setCompletedSteps] = React.useState(new Set());
+  const [showQuantities, setShowQuantities] = React.useState(false);
+  
+  const handleToggleQuantities = () => {
+    const newState = !showQuantities;
+    setShowQuantities(newState);
+    onQuantitiesToggle(newState);
+  };
 
   const toggleStep = (stepIndex) => {
     const newCompleted = new Set(completedSteps);
@@ -23,9 +30,23 @@ export default function StepList({ steps }) {
       case "timer":
         return <Timer timer={part} />;
       case "ingredient":
+        const formatQuantity = (quantity, units) => {
+          if (quantity === "some") return "q.b.";
+          if (typeof quantity === "string") return quantity;
+          if (typeof quantity === "number") {
+            return units ? `${quantity} ${units}` : `${quantity}`;
+          }
+          return "";
+        };
+        
         return (
           <span className="font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded">
             {part.name}
+            {showQuantities && part.quantity && (
+              <span className="text-green-500 text-xs ml-1">
+                ({formatQuantity(part.quantity, part.units)})
+              </span>
+            )}
           </span>
         );
       case "cookware":
@@ -40,7 +61,25 @@ export default function StepList({ steps }) {
   };
 
   return (
-    <ul className="space-y-3">
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-semibold text-lg text-gray-800">Instruções</h3>
+        <button
+          onClick={handleToggleQuantities}
+          className="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors flex items-center gap-1.5 font-medium"
+        >
+          <span>{showQuantities ? "Esconder" : "Mostrar"} qtd.</span>
+          <svg
+            className={`w-3 h-3 transition-transform ${showQuantities ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+      <ul className="space-y-3">
       {steps.map((step, stepIndex) => {
         const isCompleted = completedSteps.has(stepIndex);
         return (
@@ -80,6 +119,7 @@ export default function StepList({ steps }) {
           </li>
         );
       })}
-    </ul>
+      </ul>
+    </div>
   );
 }
