@@ -6,11 +6,19 @@ import Timer from "./Timer";
 export default function StepList({ steps, onQuantitiesToggle }) {
   const [completedSteps, setCompletedSteps] = React.useState(new Set());
   const [showQuantities, setShowQuantities] = React.useState(false);
+  const [timerStates, setTimerStates] = React.useState({});
   
   const handleToggleQuantities = () => {
     const newState = !showQuantities;
     setShowQuantities(newState);
     onQuantitiesToggle(newState);
+  };
+
+  const handleTimerUpdate = (timerId, updateFn) => {
+    setTimerStates(prev => ({
+      ...prev,
+      [timerId]: typeof updateFn === 'function' ? updateFn(prev[timerId]) : updateFn
+    }));
   };
 
   const toggleStep = (stepIndex) => {
@@ -23,12 +31,21 @@ export default function StepList({ steps, onQuantitiesToggle }) {
     setCompletedSteps(newCompleted);
   };
 
-  const StepPart = ({ part }) => {
+  const StepPart = ({ part, stepIndex, partIndex, stepText }) => {
     switch (part.type) {
       case "text":
         return <span>{part.value}</span>;
       case "timer":
-        return <Timer timer={part} />;
+        const timerId = `${stepIndex}-${partIndex}`;
+        return (
+          <Timer 
+            timer={part} 
+            timerId={timerId}
+            timerState={timerStates[timerId]}
+            onTimerUpdate={handleTimerUpdate}
+            stepText={stepText}
+          />
+        );
       case "ingredient":
         const formatQuantity = (quantity, units) => {
           if (quantity === "some") return "q.b.";
@@ -112,9 +129,36 @@ export default function StepList({ steps, onQuantitiesToggle }) {
               }`}
               style={isCompleted ? { textDecoration: "line-through", textDecorationThickness: "2px" } : {}}
             >
-              {step.map((part, partIndex) => (
-                <StepPart key={partIndex} part={part} />
-              ))}
+              {step.map((part, partIndex) => {
+                // Create complete step text for context
+                const stepText = step
+                  .map(p => {
+                    switch (p.type) {
+                      case "text":
+                        return p.value;
+                      case "ingredient":
+                        return p.name;
+                      case "cookware":
+                        return p.name;
+                      case "timer":
+                        return `${p.quantity} ${p.units || ""}`.trim();
+                      default:
+                        return "";
+                    }
+                  })
+                  .join("")
+                  .trim();
+                
+                return (
+                  <StepPart 
+                    key={partIndex} 
+                    part={part} 
+                    stepIndex={stepIndex} 
+                    partIndex={partIndex}
+                    stepText={stepText}
+                  />
+                );
+              })}
             </div>
           </li>
         );
