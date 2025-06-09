@@ -1,6 +1,7 @@
 import getRecipeMetadata from "../../../utils/getRecipeMetadata";
 import getPostContent from "../../../utils/getPostContent";
 import Image from "next/image";
+import StepList from "../../components/StepList";
 
 export const generateStaticParams = async () => {
   const recipes = getRecipeMetadata();
@@ -27,10 +28,10 @@ export default async function RecipePage(props) {
   const ingredients = recipe.ingredients;
 
   const formatQuantity = (quantity, units) => {
-    if (quantity === "some") return "";
-    if (typeof quantity === "string") return quantity + " ";
+    if (quantity === "some") return "q.b.";
+    if (typeof quantity === "string") return quantity;
     if (typeof quantity === "number") {
-      return units ? `${quantity} ${units} ` : `${quantity} `;
+      return units ? `${quantity} ${units}` : `${quantity}`;
     }
     return "";
   };
@@ -58,55 +59,52 @@ export default async function RecipePage(props) {
     return `${timer.quantity} ${timer.units || ""}`.trim();
   };
 
-  const StepPart = ({ part }) => {
-    switch (part.type) {
-      case "text":
-        return <span>{part.value}</span>;
-      case "timer":
-        return (
-          <span className="font-medium text-red-600">
-            {formatTimer(part)}
-          </span>
-        );
-      case "ingredient":
-        return (
-          <span className="font-medium text-green-600">{part.name}</span>
-        );
-      case "cookware":
-        return <span className="font-medium text-blue-600">{part.name}</span>;
-      default:
-        return null;
-    }
-  };
 
 
   return (
-    <main className="bg-red text-lg flex flex-col gap-4">
-      <h1 className="text-2xl text-center font-bold">
-        {recipe.metadata.title || slug.replace(/_/g, " ")}
-      </h1>
-      <div className="bg-white rounded-md px-4 py-2">
-        <h3 className="mb-2 font-semibold text-lg">Ingredientes</h3>
-        <ul className="list-disc list-inside">
-          {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>
-              {formatQuantity(ingredient.quantity, ingredient.units)}
-              {ingredient.name}
-            </li>
-          ))}
-        </ul>
+    <main className="bg-red text-lg flex flex-col gap-5 max-w-4xl mx-auto p-4">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-4">
+          {recipe.metadata.title || slug.replace(/_/g, " ")}
+        </h1>
+        {/* Recipe metadata */}
+        <div className="flex justify-center gap-4 text-sm bg-white/10 rounded-lg p-2">
+          {recipe.metadata.portions && (
+            <div className="flex items-center gap-1">
+              <span className="font-semibold">👥</span>
+              <span>{recipe.metadata.portions} porções</span>
+            </div>
+          )}
+          {recipe.metadata.time && (
+            <div className="flex items-center gap-1">
+              <span className="font-semibold">⏱️</span>
+              <span>{recipe.metadata.time}</span>
+            </div>
+          )}
+          {recipe.metadata.calories && (
+            <div className="flex items-center gap-1">
+              <span className="font-semibold">🔥</span>
+              <span>{recipe.metadata.calories}</span>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="bg-white rounded-md px-4 py-2">
-        <h3 className="mb-4 font-semibold text-lg">Instruções</h3>
-        <ol className="list-decimal list-inside">
-          {recipe.steps.map((step, stepIndex) => (
-            <li key={stepIndex} className="mb-2">
-              {step.map((part, partIndex) => (
-                <StepPart key={partIndex} part={part} />
-              ))}
-            </li>
+      <div className="bg-white rounded-lg px-5 py-3 shadow-sm">
+        <h3 className="mb-2 font-semibold text-lg text-gray-800">Ingredientes</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
+          {recipe.ingredients.map((ingredient, index) => (
+            <div key={index} className="flex items-baseline gap-2 py-0.5 text-base">
+              <span className="text-gray-700">{ingredient.name}</span>
+              <span className="text-gray-400 font-semibold text-sm">
+                {formatQuantity(ingredient.quantity, ingredient.units)}
+              </span>
+            </div>
           ))}
-        </ol>
+        </div>
+      </div>
+      <div className="bg-white rounded-lg px-5 py-4 shadow-sm">
+        <h3 className="mb-3 font-semibold text-lg text-gray-800">Instruções</h3>
+        <StepList steps={recipe.steps} />
       </div>
 
       <MyImage slug={slug} />
