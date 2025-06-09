@@ -84,23 +84,25 @@ export default function StepList({
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-3">
         <h3 className="font-semibold text-lg text-gray-800">Instruções</h3>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           {wakeLockComponent}
           <button
             onClick={handleToggleQuantities}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200"
+            className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200"
           >
             {showQuantities ? (
               <>
                 <span>🫣</span>
-                <span>Modo normal</span>
+                <span className="hidden sm:inline">Modo normal</span>
+                <span className="sm:hidden">Normal</span>
               </>
             ) : (
               <>
                 <span>👀</span>
-                <span>Modo compacto</span>
+                <span className="hidden sm:inline">Modo compacto</span>
+                <span className="sm:hidden">Compacto</span>
               </>
             )}
           </button>

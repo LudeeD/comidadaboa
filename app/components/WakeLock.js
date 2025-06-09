@@ -70,12 +70,14 @@ export default function WakeLock() {
       {wakeLock ? (
         <>
           <span>🔆</span>
-          <span>Ecrã sempre ligado</span>
+          <span className="hidden sm:inline">Ecrã sempre ligado</span>
+          <span className="sm:hidden">Ligado</span>
         </>
       ) : (
         <>
           <span>💤</span>
-          <span>Manter ecrã ligado</span>
+          <span className="hidden sm:inline">Manter ecrã ligado</span>
+          <span className="sm:hidden">Manter ligado</span>
         </>
       )}
     </button>
