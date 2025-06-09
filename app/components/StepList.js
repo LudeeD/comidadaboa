@@ -3,11 +3,15 @@
 import React from "react";
 import Timer from "./Timer";
 
-export default function StepList({ steps, onQuantitiesToggle }) {
+export default function StepList({
+  steps,
+  onQuantitiesToggle,
+  wakeLockComponent,
+}) {
   const [completedSteps, setCompletedSteps] = React.useState(new Set());
   const [showQuantities, setShowQuantities] = React.useState(false);
   const [timerStates, setTimerStates] = React.useState({});
-  
+
   const handleToggleQuantities = () => {
     const newState = !showQuantities;
     setShowQuantities(newState);
@@ -15,9 +19,10 @@ export default function StepList({ steps, onQuantitiesToggle }) {
   };
 
   const handleTimerUpdate = (timerId, updateFn) => {
-    setTimerStates(prev => ({
+    setTimerStates((prev) => ({
       ...prev,
-      [timerId]: typeof updateFn === 'function' ? updateFn(prev[timerId]) : updateFn
+      [timerId]:
+        typeof updateFn === "function" ? updateFn(prev[timerId]) : updateFn,
     }));
   };
 
@@ -38,8 +43,8 @@ export default function StepList({ steps, onQuantitiesToggle }) {
       case "timer":
         const timerId = `${stepIndex}-${partIndex}`;
         return (
-          <Timer 
-            timer={part} 
+          <Timer
+            timer={part}
             timerId={timerId}
             timerState={timerStates[timerId]}
             onTimerUpdate={handleTimerUpdate}
@@ -55,7 +60,7 @@ export default function StepList({ steps, onQuantitiesToggle }) {
           }
           return "";
         };
-        
+
         return (
           <span className="font-medium text-green-600 bg-green-50 px-2 py-0.5 rounded">
             {part.name}
@@ -81,88 +86,100 @@ export default function StepList({ steps, onQuantitiesToggle }) {
     <div>
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-semibold text-lg text-gray-800">Instruções</h3>
-        <button
-          onClick={handleToggleQuantities}
-          className="px-3 py-1.5 text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors flex items-center gap-1.5 font-medium"
-        >
-          <span>{showQuantities ? "Esconder" : "Mostrar"} qtd.</span>
-          <svg
-            className={`w-3 h-3 transition-transform ${showQuantities ? "rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+        <div className="flex items-center gap-2">
+          {wakeLockComponent}
+          <button
+            onClick={handleToggleQuantities}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            {showQuantities ? (
+              <>
+                <span>🫣</span>
+                <span>Modo normal</span>
+              </>
+            ) : (
+              <>
+                <span>👀</span>
+                <span>Modo compacto</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
       <ul className="space-y-3">
-      {steps.map((step, stepIndex) => {
-        const isCompleted = completedSteps.has(stepIndex);
-        return (
-          <li key={stepIndex} className="flex items-start gap-3">
-            <button
-              onClick={() => toggleStep(stepIndex)}
-              className={`flex-shrink-0 w-5 h-5 rounded border-2 mt-0.5 transition-colors ${
-                isCompleted
-                  ? "bg-amber-500 border-amber-500 text-white"
-                  : "border-gray-300 hover:border-amber-400"
-              }`}
-            >
-              {isCompleted && (
-                <svg
-                  className="w-3 h-3 mx-auto"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-            </button>
-            <div
-              className={`text-base leading-relaxed transition-opacity ${
-                isCompleted ? "opacity-50" : ""
-              }`}
-              style={isCompleted ? { textDecoration: "line-through", textDecorationThickness: "2px" } : {}}
-            >
-              {step.map((part, partIndex) => {
-                // Create complete step text for context
-                const stepText = step
-                  .map(p => {
-                    switch (p.type) {
-                      case "text":
-                        return p.value;
-                      case "ingredient":
-                        return p.name;
-                      case "cookware":
-                        return p.name;
-                      case "timer":
-                        return `${p.quantity} ${p.units || ""}`.trim();
-                      default:
-                        return "";
-                    }
-                  })
-                  .join("")
-                  .trim();
-                
-                return (
-                  <StepPart 
-                    key={partIndex} 
-                    part={part} 
-                    stepIndex={stepIndex} 
-                    partIndex={partIndex}
-                    stepText={stepText}
-                  />
-                );
-              })}
-            </div>
-          </li>
-        );
-      })}
+        {steps.map((step, stepIndex) => {
+          const isCompleted = completedSteps.has(stepIndex);
+          return (
+            <li key={stepIndex} className="flex items-start gap-3">
+              <button
+                onClick={() => toggleStep(stepIndex)}
+                className={`flex-shrink-0 w-5 h-5 rounded border-2 mt-0.5 transition-colors ${
+                  isCompleted
+                    ? "bg-amber-500 border-amber-500 text-white"
+                    : "border-gray-300 hover:border-amber-400"
+                }`}
+              >
+                {isCompleted && (
+                  <svg
+                    className="w-3 h-3 mx-auto"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </button>
+              <div
+                className={`text-base leading-relaxed transition-opacity ${
+                  isCompleted ? "opacity-50" : ""
+                }`}
+                style={
+                  isCompleted
+                    ? {
+                        textDecoration: "line-through",
+                        textDecorationThickness: "2px",
+                      }
+                    : {}
+                }
+              >
+                {step.map((part, partIndex) => {
+                  // Create complete step text for context
+                  const stepText = step
+                    .map((p) => {
+                      switch (p.type) {
+                        case "text":
+                          return p.value;
+                        case "ingredient":
+                          return p.name;
+                        case "cookware":
+                          return p.name;
+                        case "timer":
+                          return `${p.quantity} ${p.units || ""}`.trim();
+                        default:
+                          return "";
+                      }
+                    })
+                    .join("")
+                    .trim();
+
+                  return (
+                    <StepPart
+                      key={partIndex}
+                      part={part}
+                      stepIndex={stepIndex}
+                      partIndex={partIndex}
+                      stepText={stepText}
+                    />
+                  );
+                })}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

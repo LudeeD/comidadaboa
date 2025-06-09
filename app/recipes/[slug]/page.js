@@ -149,17 +149,13 @@ export default async function RecipePage(props) {
         dangerouslySetInnerHTML={{ __html: generateJsonLd() }}
       />
       
-      <main className="bg-red text-lg flex flex-col gap-5 max-w-4xl mx-auto p-4">
-      <div className="text-center">
-        <div className="flex items-center justify-between mb-4">
-          <div></div> {/* Spacer for centering */}
-          <h1 className="text-3xl font-bold">
-            {recipeData.metadata.title || slug.replace(/_/g, " ")}
-          </h1>
-          <WakeLock />
-        </div>
+      <main className="bg-red text-lg flex flex-col gap-5 w-full max-w-4xl mx-auto p-4">
+      <div className="text-center w-full">
+        <h1 className="text-3xl font-bold mb-4">
+          {recipeData.metadata.title || slug.replace(/_/g, " ")}
+        </h1>
         {/* Recipe metadata */}
-        <div className="flex justify-center gap-4 text-sm bg-white/10 rounded-lg p-2">
+        <div className="flex justify-center gap-4 text-sm bg-white/10 rounded-lg p-2 w-full">
           {recipeData.metadata.portions && (
             <div className="flex items-center gap-1">
               <span className="font-semibold">👥</span>
@@ -180,7 +176,7 @@ export default async function RecipePage(props) {
           )}
         </div>
       </div>
-      <RecipeContent recipe={recipeData} />
+      <RecipeContent recipe={recipeData} wakeLockComponent={<WakeLock />} />
 
       <MyImage slug={slug} />
       </main>

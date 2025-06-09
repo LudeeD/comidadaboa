@@ -8,21 +8,20 @@ export default function WakeLock() {
 
   React.useEffect(() => {
     // Check if Wake Lock API is supported
-    setIsSupported('wakeLock' in navigator);
+    setIsSupported("wakeLock" in navigator);
   }, []);
 
   const requestWakeLock = async () => {
     try {
-      const wakeLockObj = await navigator.wakeLock.request('screen');
+      const wakeLockObj = await navigator.wakeLock.request("screen");
       setWakeLock(wakeLockObj);
-      
+
       // Listen for wake lock release (can happen when tab becomes inactive)
-      wakeLockObj.addEventListener('release', () => {
+      wakeLockObj.addEventListener("release", () => {
         setWakeLock(null);
       });
-
     } catch (err) {
-      console.error('Wake lock request failed:', err);
+      console.error("Wake lock request failed:", err);
     }
   };
 
@@ -36,16 +35,16 @@ export default function WakeLock() {
   // Auto-release when component unmounts or page loses visibility
   React.useEffect(() => {
     const handleVisibilityChange = () => {
-      if (wakeLock && document.visibilityState === 'visible') {
+      if (wakeLock && document.visibilityState === "visible") {
         // Re-request wake lock when page becomes visible again
         requestWakeLock();
       }
     };
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (wakeLock) {
         wakeLock.release();
       }
@@ -64,17 +63,19 @@ export default function WakeLock() {
           ? "bg-green-500 text-white hover:bg-green-600"
           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
       }`}
-      title={wakeLock ? "Screen will stay on" : "Keep screen awake while cooking"}
+      title={
+        wakeLock ? "Screen will stay on" : "Keep screen awake while cooking"
+      }
     >
       {wakeLock ? (
         <>
           <span>🔆</span>
-          <span>Screen On</span>
+          <span>Ecrã sempre ligado</span>
         </>
       ) : (
         <>
           <span>💤</span>
-          <span>Keep Awake</span>
+          <span>Manter ecrã ligado</span>
         </>
       )}
     </button>

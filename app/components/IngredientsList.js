@@ -13,7 +13,7 @@ export default function IngredientsList({ ingredients, isMinimized }) {
   };
 
   return (
-    <div className="bg-white rounded-lg px-5 py-3 shadow-sm">
+    <div className="bg-white rounded-lg px-5 py-3 shadow-sm w-full">
       <h3 className="mb-2 font-semibold text-lg text-gray-800">Ingredientes</h3>
       {isMinimized ? (
         <p className="text-sm text-gray-500 italic">
