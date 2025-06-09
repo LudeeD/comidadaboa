@@ -10,7 +10,8 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export const generateMetadata = async ({ params, searchParams }) => {
+export const generateMetadata = async (props) => {
+  const params = await props.params;
   const id = params.slug;
   return {
     title: `Receita: ${id.replace(/-/g, " ")}`,
@@ -18,7 +19,7 @@ export const generateMetadata = async ({ params, searchParams }) => {
 };
 
 export default async function RecipePage(props) {
-  const { params } = props;
+  const params = await props.params;
   const { slug } = params;
 
   const { recipe, image } = await getPostContent(slug);
@@ -139,7 +140,7 @@ export default async function RecipePage(props) {
   return (
     <main className="bg-red text-lg flex flex-col gap-4">
       <h1 className="text-2xl text-center font-bold">
-        {recipe.metadata.map.title}
+        {recipe.metadata.title}
       </h1>
       <div className="bg-white rounded-md px-4 py-2">
         <h3 className="mb-2 font-semibold text-lg">Ingredientes</h3>
@@ -154,7 +155,7 @@ export default async function RecipePage(props) {
       </div>
       <div className="bg-white rounded-md px-4 py-2">
         <h3 className="mb-4 font-semibold text-lg">Instruções</h3>
-        {recipe.sections.map((section, index) => {
+        {recipe.steps.map((section, index) => {
           //return JSON.stringify(section);
           return (
             <Section key={index} title={section.name} steps={section.content} />
