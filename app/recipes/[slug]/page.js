@@ -25,40 +25,14 @@ export default async function RecipePage(props) {
   const { recipe, image } = await getPostContent(slug);
 
   const ingredients = recipe.ingredients;
-  const timers = recipe.timers;
 
-  const formatQuantity = (quantity) => {
-    if (!quantity || typeof quantity !== "object") return "";
-
-    let value = "";
-    let unit = quantity.unit || "";
-
-    if (quantity.value && quantity.value.type === "fixed") {
-      const fixedValue = quantity.value.value;
-      if (fixedValue && fixedValue.type === "number") {
-        const numberValue = fixedValue.value;
-        if (numberValue) {
-          if (numberValue.type === "regular") {
-            value = numberValue.value;
-          } else if (numberValue.type === "fraction") {
-            const fraction = numberValue.value;
-            if (fraction.whole === 0) {
-              value = fraction.num / fraction.den;
-            } else {
-              value = fraction.whole + fraction.num / fraction.den;
-            }
-          }
-        }
-      }
+  const formatQuantity = (quantity, units) => {
+    if (quantity === "some") return "";
+    if (typeof quantity === "string") return quantity + " ";
+    if (typeof quantity === "number") {
+      return units ? `${quantity} ${units} ` : `${quantity} `;
     }
-
-    // Format the value
-    const formattedValue = Number(value).toLocaleString(undefined, {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
-    });
-
-    return `${formattedValue} ${unit} `;
+    return "";
   };
 
   // return if exists
@@ -81,73 +55,42 @@ export default async function RecipePage(props) {
 
   const formatTimer = (timer) => {
     if (!timer || !timer.quantity) return "";
-
-    let value = "";
-    let unit = timer.quantity.unit || "";
-
-    if (timer.quantity.value?.type === "fixed") {
-      const numberValue = timer.quantity.value.value?.value;
-      if (numberValue?.type === "regular") {
-        value = numberValue.value;
-      }
-    }
-
-    return `${value} ${unit}`.trim();
+    return `${timer.quantity} ${timer.units || ""}`.trim();
   };
 
-  const Step = ({ part }) => {
-    console.log(JSON.stringify(part));
+  const StepPart = ({ part }) => {
     switch (part.type) {
       case "text":
         return <span>{part.value}</span>;
       case "timer":
-        let timer = timers[part.index];
         return (
-          <span className="font-medium text-red-600">{formatTimer(timer)}</span>
+          <span className="font-medium text-red-600">
+            {formatTimer(part)}
+          </span>
         );
       case "ingredient":
-        let ingredient = ingredients[part.index];
         return (
-          <span className="font-medium text-green-600">{ingredient.name}</span>
+          <span className="font-medium text-green-600">{part.name}</span>
         );
       case "cookware":
-        return <span className="font-medium text-blue-600">{part.value}</span>;
+        return <span className="font-medium text-blue-600">{part.name}</span>;
       default:
-        console.log("Unknown part type", part);
         return null;
     }
   };
 
-  const Section = ({ title, steps }) => {
-    return (
-      <>
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <ol className="list-decimal list-inside">
-          {steps.map((step, index) => (
-            <li key={index} className="mb-2">
-              {Array.isArray(step.value.items)
-                ? step.value.items.map((part, partIndex) => (
-                    <Step key={partIndex} part={part} />
-                  ))
-                : step}
-            </li>
-          ))}
-        </ol>
-      </>
-    );
-  };
 
   return (
     <main className="bg-red text-lg flex flex-col gap-4">
       <h1 className="text-2xl text-center font-bold">
-        {recipe.metadata.title}
+        {recipe.metadata.title || slug.replace(/_/g, " ")}
       </h1>
       <div className="bg-white rounded-md px-4 py-2">
         <h3 className="mb-2 font-semibold text-lg">Ingredientes</h3>
         <ul className="list-disc list-inside">
           {recipe.ingredients.map((ingredient, index) => (
             <li key={index}>
-              {ingredient.quantity ? formatQuantity(ingredient.quantity) : ""}
+              {formatQuantity(ingredient.quantity, ingredient.units)}
               {ingredient.name}
             </li>
           ))}
@@ -155,12 +98,15 @@ export default async function RecipePage(props) {
       </div>
       <div className="bg-white rounded-md px-4 py-2">
         <h3 className="mb-4 font-semibold text-lg">Instruções</h3>
-        {recipe.steps.map((section, index) => {
-          //return JSON.stringify(section);
-          return (
-            <Section key={index} title={section.name} steps={section.content} />
-          );
-        })}
+        <ol className="list-decimal list-inside">
+          {recipe.steps.map((step, stepIndex) => (
+            <li key={stepIndex} className="mb-2">
+              {step.map((part, partIndex) => (
+                <StepPart key={partIndex} part={part} />
+              ))}
+            </li>
+          ))}
+        </ol>
       </div>
 
       <MyImage slug={slug} />
